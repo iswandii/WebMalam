@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latihan</title>
+    <link rel="stylesheet" href="../css/bootstrap.css">
+</head>
+
+<body>
+    <button id="tambah" class="btn btn-warning" onclick="tambah()">10+5.2+3</button>
+    <button class="btn btn-danger" onclick="kurang()">10-5.2</button>
+    <button class="btn btn-success" onclick="kali()">3*10*5.2</button>
+    <button class="btn btn-primary" onclick="bagi()">10/3</button>
+
+    <script>
+        var a, b, c, d, e, f, g;
+        a = 10;
+        b = 5.2;
+        c = 3;
+        d = a + b + c;
+        e = a - b;
+        f = c * a * b;
+        g = a / c;
+
+        function tambah() {
+            alert("nilai dari 10+5.2+3 = " + d);
+        }
+
+        function kurang() {
+            alert("nilai dari 10-5.2 = " + e);
+        }
+
+        function kali() {
+            alert("nilai dari 3*10*5.2 = " + f);
+        }
+
+        function bagi() {
+            alert("nilai dari 10/3 = " + g);
+        }
+    </script>
+
+    <script src="../js/bootstrap.js"></script>
+    <script src="../js/jquery.js"></script>
+</body>
+
+</html>

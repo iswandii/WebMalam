@@ -1,0 +1,23 @@
+{
+  "name": "web_malam",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "^7.5.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iswandii/Web_Malam.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/iswandii/Web_Malam/issues"
+  },
+  "homepage": "https://github.com/iswandii/Web_Malam#readme"
+}

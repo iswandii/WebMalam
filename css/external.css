@@ -1,0 +1,88 @@
+* {
+    background-color: rgb(226, 226, 148);
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    background-color: black;
+    color: whitesmoke;
+    text-align: center;
+    padding: 10px;
+}
+
+ul li:first-child {
+    font-size: 30px;
+    color: white;
+}
+
+ul li:nth-child(2) {
+    font-size: 30px;
+    color: greenyellow;
+}
+
+ul li:nth-child(3) {
+    font-size: 30px;
+    color: rgb(233, 173, 8);
+}
+
+ul li:nth-child(4) {
+    font-size: 30px;
+    color: rgb(241, 34, 214);
+}
+
+ul li:last-child {
+    font-size: 30px;
+    color: rgb(105, 42, 0);
+}
+
+.q {
+    background-color: white;
+    font-size: 30px;
+
+}
+
+#a {
+    text-decoration: none;
+    padding: 30px;
+    color: yellowgreen;
+    background-color: rgb(111, 21, 214);
+
+}
+
+#a:hover {
+    border-radius: 30px;
+    text-decoration: none;
+    color: skyblue;
+    background-color: rgb(155, 19, 19);
+}
+
+#a :first-child {}
+
+.r {
+    text-decoration: none;
+    padding: 30px;
+    color: rgb(18, 110, 231);
+    background-color: rgb(255, 9, 9);
+}
+
+.t {
+    text-decoration: none;
+    padding: 30px;
+    color: rgb(223, 11, 11);
+    background-color: rgb(255, 251, 0);
+}
+
+.r:hover {
+    border-radius: 30px;
+    text-decoration: none;
+    color: rgb(0, 245, 82);
+    background-color: rgb(183, 0, 255);
+}
+
+.t:hover {
+    border-radius: 30px;
+    text-decoration: none;
+    color: rgb(51, 14, 218);
+    background-color: rgb(110, 50, 50);
+}

@@ -1,0 +1,43 @@
+.fixed-whatsapp {
+    position: relative;
+    bottom: 0px;
+    right: 0px;
+    width: 50px;
+    height: 50px;
+    z-index: 9;
+
+}
+
+.fixed-whatsapp:before {
+    content: "";
+    background-repeat: no-repeat;
+    background-size: 25px 25px;
+    background-position: center center;
+    width: 40px;
+    height: 40px;
+    background-image: url(https://png.pngtree.com/png-clipart/20190516/original/pngtree-whatsapp-icon-png-image_3584844.jpg);
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 100%;
+    box-shadow: 0 1px 1.5px 0 black, 0 1px 1px 0 black;
+}
+
+.fixed-whatsapp:after {
+    content: "Hallo.. saya ingin apa ya ?";
+    width: 250px;
+    padding: 10px 10px;
+    position: absolute;
+    bottom: 20%;
+    margin-bottom: 0px;
+    right: 100px;
+    left: 260px;
+    text-align: right;
+    color: black;
+    border: 1px solid white;
+    background: white;
+    border-radius: 4px;
+    opacity: 0;
+    transition: all .4px ease-in-out;
+    font-size: 90%;
+}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contoh Percabangan If</title>
+</head>
+
+<body>
+    <form method="POST" action="" name="formBilangan">
+        <h2>Menentukan bilangan Positif dan Negatif</h2>
+        <label>
+
+            <input type="text" name="inputBilangan">
+        </label>
+        <button onclick="tanyaBilangan()" value="tanya">Tanya</button>
+        <button type="reset">Reset</button>
+    </form>
+
+    <script>
+        function tanyaBilangan() {
+            var bil = parseFloat(document.formBilangan.inputBilangan.value);
+            var jenis = "";
+            if (isNaN(bil)) {
+                alert('anda belum memasukkan bilangan');
+            } else {
+                if (bil > 0) {
+                    jenis = "Bilangan Bernilai Positif";
+                } else if (bil < 0) {
+                    jenis = "Bilangan Bernilai Negatif";
+                } else {
+                    jenis = "Bilangan Bulat";
+                }
+                alert(bil + " " + jenis);
+            }
+        }
+    </script>
+</body>
+
+</html>

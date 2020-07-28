@@ -1,0 +1,92 @@
+	ctrl + spasi              = untuk memunculkan helper
+	singkatkan css            = ff => font-family, baim => background image
+	ctrl + k,b                = untuk menghide side bar
+	ctrl + /                  = untuk memberikan komentar
+	ctrl + kursor             = multiple kursor
+	ctrl + d                  = untuk menyeleksi, apabila diklik 2x ctrl + d, maka dia akan mencari kemunculan kata berikutnya yang persis sama
+	ctrl + u                  = untuk memundurkan seleksi dari ctrl + d
+	alt + f3                  = untuk menyeleksi semua kata yang sama
+	ctrl + shift + d          = untuk menduplikat baris
+	ctrl + shift + k          = untuk mendelete baris
+	ctrl + shift + atas/bawah = untuk menukar baris
+	ctrl + shift + c          = Untuk Color Picker
+	ctrl + alt + a            = Untuk mensejajarkan
+	
+	MEMBANTU MELAKUKAN INDENTASI
+	<!-- div.container = <div class="container"></div> -->
+	<!-- div#container = <div id="container"></div> -->
+	blok, tab atau ctrl ] =  untuk melakukan geser kesebelah kanan sebuah kode
+	blok, shift + tab atau ctrl [ =  untuk melakukan geser kesebelah kiri sebuah kode
+	
+	MEMPERCEPAT TEKNIK PENULISAN KODE DENGAN MENGGUNAKAN COMMAND PALETTE
+	Jadi Comand Palette adalah sebuah fasilitas di Sublime Text untuk mempermudah kita mengakses menu-menu yang ada diatas selain dengan menggunakan shorcut.
+	
+	ctrl + shift + p = Untuk memunculkan Command Pallete
+	ctrl + p = Go To Anything, pake '@' untuk pindah ke methode / function, pake ':' untuk pindah baris
+	
+	EMMET untuk menyingkat HTML,CSS dan lainnya
+	
+	'>' untuk menyimpan tag didalam tag lain atau buat elemen didalam sebuah elemen lain
+	'.' Kalau ditulis '.container' maka <div class="container"></div>
+	Tapi kalau ditulis 'p>.tulisan' maka <p><span class="tulisan"></span></p>
+	sama juga dengan 'ul>.link' maka <ul> <li class="link"> </li> </ul>
+	'+' Untuk membuat elemen yang sejajar	
+	'*' Untuk perkalian
+	'()' Untuk melakukan gruping
+	'{}' Untuk membuat text
+	'$' Untuk menambahkan urutan angka
+	'lorem' Untuk membuat kata
+	[]
+	
+	.container>(.header>ul.nav>li*4>a{Link $})+.main(h1{Judul Artikel}+p>lorem20)
+	
+	.container>(.header>ul.nav>li*4>a{Link $})+(.main>h2{Judul Artikel}+p>lorem20)
+
+	table[border="1"]>form>tr>(td(label{Nama Lengkap : })+td(input[type="text"]))>tr>(td(label{Password : })+td(input[type="password"]))>tr>(td(label{No HP : })+td(input[type="number"]))>tr>(td(label{Tanggal Lahir : })+td(input[type="date"]))>tr>(td(label{Jenis Kelamin : })+td(input[type="radio" name="jk"]+input[type="radio" name="jk"]))>tr>(td(label{Hobby : })+td(input[type="checkbox"]{Membaca}+input[type="checkbox"]{Memasak}+input[type="checkbox"]{Memancing}+input[type="checkbox"]{Main Game}+input[type="checkbox"]{Ngoding}))>tr>(td(label{Kabupaten})+td(select(option{Banda Aceh}+option{Aceh Besar}+option{Pidie}+option{Bireun}+option{Lhokseumawe}+option{Aceh Jaya}+option{Aceh Tengah}+option{Simeulu}+option{Aceh Tamiang}+option{Meulaboh})))>tr>(td(input[type="hidden"]))>tr>(td(label{Alamat : })+td(textarea))>tr>(td(label{Minggu ke : })+td(input[type="week"]))>tr>(td(label{Waktu : })+td(input[type="time"]))>tr>(td(label{Lokal : })+td(input[type="datetime-local" name=""]))>tr>(td(label{Warna : })+td(input[type="color"]))>tr>(td(label{Email : })+td(input[type="email" placeholder=""]))>tr>(td(label{Gambar : })+td(input[type="image"]))>tr>(td(label{Bulan : })+td(input[type="month"]))>tr>(td(label{Range : })+td(input[type="range"]))>tr>(td(label{Pilih File : })+td(input[type="file"]))>tr>(td(label{Url : })+td(input[type="url"]))>tr>(td(label{Cari : })+td(input[type="search"]))>tr>(td[colspan="2"](input[type="submit" name="" value="Update"]+button{Update}+input[type="reset" name="" value="Clean"]))
+
+	table[border="1"]>form>(tr>td(label{Nama Lengkap : })+td(input[type="text"]))*2
+
+
+	CARA MENGKONFIGURASI LINGKUNGAN SUBLIME TEXT AGAR SESUAI DENGAN TUJUAN PADA SAAT NGODING
+	1. Multiple Layout
+		Untuk membuat beberapa layout pada tampilan sublime text
+	2. Disctraction-free mode 
+		Untuk membuat mode bebas gangguan 	 
+
+
+Color Scheme = Snappy
+"theme": "Material-Theme.sublime-theme"
+
+{
+	"always_show_minimap_viewport": true,
+	"bold_folder_labels": true,
+	"color_scheme": "Packages/Material Theme/schemes/Material-Theme.tmTheme",
+	"font_options":
+	[
+		"gray_antialias",
+		"subpixel_antialias"
+	],
+	"font_size": 8,
+	"ignored_packages":
+	[
+		"Vintage"
+	],
+	"indent_guide_options":
+	[
+		"draw_normal",
+		"draw_active"
+	],
+	"line_padding_bottom": 4,
+	"line_padding_top": 4,
+	"material_theme_accent_acid-lime": true,
+	"overlay_scroll_bars": "enabled",
+	"theme": "Material-Theme.sublime-theme"
+}
+
+
+
+	
+	
+	
+	
+	

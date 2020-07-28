@@ -1,0 +1,111 @@
+Konfigurasi Git
+Konfigurasi informasi Git untuk pengguna dan system lokal
+$ git config --global user.name "[nama]"
+Mengatur nama yang ingin ditautkan pada transaksi commit Anda
+$ git config --global user.email "[alamat surel]"
+Mengatur alamat surel yang ingin ditautkan pada transaksi commit Anda
+
+
+Membuat Repositori
+Mulai repositori baru
+$ git init [nama-proyek]
+Membuat repositori lokal baru dengan nama tertentu
+$ git clone [url]
+Unduh sebuah proyek dan seluruh riwayat revisinya
+
+
+Pergantian Nama Berkas
+Merelokasi dan menghapus berkas terevisi
+$ git rm [berkas]
+Menghapus berkas dari direktori kerja dan daftarkan penghapusan
+$ git rm --cached [berkas]
+Menghapus berkas dari riwayat revisi dengan tetap mempertahankan berkas lokal
+$ git mv [berkas-asli] [berkas-baru]
+Mengganti nama berkas dan mempersiapkan berkas untuk pendaftaran commit
+
+
+Tahan Pelacakan
+Mengabaikan berkas dan garis edar sementara
+*.log
+build/
+temp-*
+Sebuah berkas teks bernama .gitignore mengabaikan revisi berkas yang tidak disengaja serta garis edar berkas yang cocok dengan pola tertentu
+$ git ls-files --others --ignored --exclude-standard
+Daftar semua berkas yang diabaikan dalam proyek tersebut
+
+
+Menyimpan Fragmen
+Menyimpan dan mengembalikan perubahan yang belum lengkap
+$ git stash
+Menyimpan semua perubahan berkas yang terlacak untuk sementara
+$ git stash pop
+Mengembalikan berkas yang paling baru disimpan
+$ git stash list
+Daftar semua koleksi perubahan yang tersimpan
+$ git stash drop
+Membuang koleksi perubahan yang paling baru disimpan
+
+
+Membuat Perubahan
+Tinjau suntingan dan buat sebuah transaksi commit
+$ git status
+Daftar semua berkas baru atau modifikasi yang siap didaftarkan dalam commit
+$ git diff
+Menunjukkan perbedaan berkas-berkas yang belum didaftarkan dalam commit
+$ git add [berkas]
+Rekam berkas yang akan didaftarkan ke dalam commit
+$ git diff --staged
+Menunjukkan perbedaan berkas hasil revisi dengan versi berkas terakhir yang terdaftar
+$ git reset [berkas]
+Batal merevisi berkas, namun tetap mempertahankan isinya
+$ git commit -m "[pesan deskriptif]"
+Daftarkan perubahan berkas secara permanen di riwayat revisi
+
+
+Perubahan Berkelompok
+Menyebutkan serangkaian commit dan menggabungkan upaya yang telah selesai
+$ git branch
+Daftar semua cabang lokal di repositori saat ini
+$ git branch [nama-cabang]
+Membuat cabang baru
+$ git checkout [nama-cabang]
+Berpindah ke cabang tertentu dan perbarui direktori yang sedang dikerjakan
+$ git merge [nama-cabang]
+Menggabungkan riwayat cabang tertentu ke dalam cabang yang sedang dipakai
+$ git branch -d [nama-cabang]
+Hapus cabang tertentu
+
+
+Riwayat Ulasan
+Jelajah dan periksa perkembangan berkas-berkas dalam proyek
+$ git log
+Daftar riwayat revisi untuk cabang saat ini
+$ git log --follow [berkas]
+Daftar riwayat revisi untuk sebuah berkas, termasuk pergantian namanya
+$ git diff [cabang-pertama]...[cabang-kedua]
+Menunjukkan perbedaan konten antar dua cabang
+$ git show [commit]
+Mennampilkan perubahan konten dan metadata dari commit tertentu
+
+
+Melakukan Commit Kembali
+Menghapus kesalahan dan buat riwayat penggantian
+$ git reset [commit]
+Membatalkan semua commit setelah [commit], dengan melestarikan perubahan lokal
+$ git reset --hard [commit]
+Membuang semua riwayat dan perubahan sampai di titik yang ditentukan oleh commit
+
+
+Sinkronisasi Perubahan
+Daftarkan remote (URL) dan tukar riwayat repositori
+$ git fetch [remote]
+Unduh semua riwayat dari repositori remote
+$ git merge [remote]/[cabang]
+Menggabungkan cabang remote ke dalam cabang lokal saat ini
+$ git push [remote] [branch]
+Unggah semua commit dari cabang lokal ke GitHub
+$ git pull
+Unduh riwayat marka dan gabungkan perubahan
+
+alias graph="git log --all --decorate --oneline --graph
+git config --list
