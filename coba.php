@@ -9,7 +9,16 @@
 
 <body>
     <?php
-    echo "Hello World"
+    echo "Hello World <br>";
+    print "Hello World";
+    ?>
+    <hr>
+    <?php
+    $nama = "Iswandi";
+    $alamat = "Banda Aceh";
+    $no_hp = "085314371327";
+
+    echo "Nama saya adalah $nama <br> Alamat saya di $alamat <br> No HP : $no_hp";
     ?>
 </body>
 
