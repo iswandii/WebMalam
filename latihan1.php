@@ -17,7 +17,7 @@
     $total = (2 * $aqua) + (3 * $mie) + (1 * $saus);
     $kembalian = $uang - $total;
     echo "Uang yang harus dibayar Budi adalah $total <br>";
-    echo "Kembalian yang diperoleh Budi adalah $kembalian"
+    echo "Kembalian yang diperoleh Budi adalah $kembalian";
     ?>
 </body>
 
