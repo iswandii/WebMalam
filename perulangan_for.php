@@ -42,6 +42,25 @@
     // ! Contoh 4 
     for ($i = 1; $i <= 10; print "$i", $i++);
     ?>
+    <hr>
+    <?php
+    // !metode membuat looping lewat html
+    $a = 1;
+    for ($a = 1; $a < 5; $a++) {
+
+
+    ?>
+        <form action="">
+            <label>
+                Username
+                <input type="text" name="username">
+            </label>
+        </form>
+    <?php
+
+    }
+    ?>
+
 </body>
 
 </html>
