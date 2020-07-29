@@ -83,8 +83,9 @@
     ?>
     <hr>
     <?php
-    for ($i = 1; $i <= 127; $i *= 2)
-        echo $i + 3;
+    $nilai = 1;
+    for ($i = 4; $i <= 128; $i *= 2)
+        echo $i - $niali;
     ?>
 </body>
 
