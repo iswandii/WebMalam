@@ -61,6 +61,31 @@
     }
     ?>
 
+    <?php
+    // !membuat contoh foreach
+    // *menampilkan jumlah nilai yang sama sebanyak jumlah array
+    $hewan = array('ayam', 'kamning', 'kucing', 'sapi');
+    foreach ($hewan as $key => $value) {
+        echo "" . $hewan[2];
+    }
+    ?>
+
+    <?php
+    //* menampilkan jumlah angka yang dipilih dengan array sebanyak jumlah array
+    $angka = array(1, 2, 3, 4);
+    foreach ($angka as $key => $value) {
+        echo "" . $angka[2] * $angka[3];
+    }
+    ?>
+
+    <?php
+    // * menampilkan jumlah nilai yang sama sebanyak jumlah array
+    $hewan = array('ayam', 'kamning', 'kucing', 'sapi');
+    foreach ($hewan as $key => $value) {
+        echo "" . $value[1];
+    }
+    ?>
+
 </body>
 
 </html>
