@@ -103,6 +103,7 @@
                             <td class="sign">:</td>
                             <td>
                                 <select name="kota" id="">
+                                    <option value="">Pilih Kabupaten / Kota</option>
                                     <option value="Banda Aceh">Banda Aceh</option>
                                     <option value="Aceh Besar">Aceh Besar</option>
                                     <option value="Pidie">Pidie</option>
@@ -123,6 +124,7 @@
                             <td class="sign">:</td>
                             <td>
                                 <select name="pendidikan" id="">
+                                    <option value="">Pilih Pendidikan</option>
                                     <option value="SD">SD</option>
                                     <option value="SMP">SMP</option>
                                     <option value="SMA">SMA</option>
@@ -145,7 +147,14 @@
                             </td>
                             <td class="sign">:</td>
                             <td>
-                                <input type="textarea" name="agama">
+                                <select name="agama" id="">
+                                    <option value="">Pilih Agama</option>
+                                    <option value="Islam">Islam</option>
+                                    <option value="Kristen">Kristen</option>
+                                    <option value="Hindu">Hindu</option>
+                                    <option value="Budha">Budha</option>
+                                    <option value="Konghuchu">Konghuchu</option>
+                                </select>
                             </td>
                         </tr>
                         <tr>
@@ -194,7 +203,7 @@
                     $kota           = $_POST['kota'];
                     $pendidikan     = !empty($_POST['pendidikan']) ? $_POST['pendidikan'] : "";
                     $pekerjaan      = $_POST['pekerjaan'];
-                    $agama          = $_POST['agama'];
+                    $agama          = !empty($_POST['agama']) ? $_POST['agama'] : "";
                     $foto           = $_POST['foto'];
                     $password       = $_POST['password'];
                     $username       = $_POST['username'];
