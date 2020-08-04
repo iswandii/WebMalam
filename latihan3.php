@@ -183,7 +183,7 @@
                     $nama           = $_POST['nama_lengkap'];
                     $tgl            = $_POST['tgl'];
                     $tempat_lahir   = $_POST['tempat_lahir'];
-                    $jk             = $_POST['jk'];
+                    $jk             = !empty($_POST['jk']) ? $_POST['jk'] : "";
                     $hobby          = $_POST['hobby'];
                     $alamat         = $_POST['alamat'];
                     $kota           = $_POST['kota'];
