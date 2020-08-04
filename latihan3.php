@@ -80,11 +80,11 @@
                             </td>
                             <td class="sign">:</td>
                             <td>
-                                <input type="checkbox" name="membaca">Membaca
-                                <input type="checkbox" name="memasak">Memasak</input>
-                                <input type="checkbox" name="memancing">Memancing</input>
-                                <input type="checkbox" name="main_game">Main Game</input>
-                                <input type="checkbox" name="ngoding">Ngoding</input>
+                                <input type="checkbox" name="membaca" value="Membaca">Membaca
+                                <input type="checkbox" name="memasak" value="Memasak">Memasak</input>
+                                <input type="checkbox" name="memancing" value="Memancing">Memancing</input>
+                                <input type="checkbox" name="main_game" value="Main Game">Main Game</input>
+                                <input type="checkbox" name="ngoding" value="Ngoding">Ngoding</input>
                             </td>
                         </tr>
                         <tr>
@@ -123,10 +123,10 @@
                             <td class="sign">:</td>
                             <td>
                                 <select name="pendidikan" id="">
-                                    <option value="">SD</option>
-                                    <option value="">SMP</option>
-                                    <option value="">SMA</option>
-                                    <option value="">S1</option>
+                                    <option value="SD">SD</option>
+                                    <option value="SMP">SMP</option>
+                                    <option value="SMA">SMA</option>
+                                    <option value="S1">S1</option>
                                 </select>
                             </td>
                         </tr>
@@ -185,17 +185,21 @@
                     $tgl            = $_POST['tgl'];
                     $tempat_lahir   = $_POST['tempat_lahir'];
                     $jk             = !empty($_POST['jk']) ? $_POST['jk'] : "";
-                    $hobby          = $_POST['hobby'];
+                    $hobby1         = !empty($_POST['membaca']) ? $_POST['membaca'] : "";
+                    $hobby2         = !empty($_POST['memasak']) ? $_POST['memasak'] : "";
+                    $hobby3         = !empty($_POST['memancing']) ? $_POST['memancing'] : "";
+                    $hobby4         = !empty($_POST['main_game']) ? $_POST['main_game'] : "";
+                    $hobby5         = !empty($_POST['ngoding']) ? $_POST['ngoding'] : "";
                     $alamat         = $_POST['alamat'];
                     $kota           = $_POST['kota'];
-                    $pendidikan     = $_POST['pendidikan'];
+                    $pendidikan     = !empty($_POST['pendidikan']) ? $_POST['pendidikan'] : "";
                     $pekerjaan      = $_POST['pekerjaan'];
                     $agama          = $_POST['agama'];
                     $foto           = $_POST['foto'];
                     $password       = $_POST['password'];
                     $username       = $_POST['username'];
 
-                    echo "$nama <br> $tgl <br> $tempat_lahir <br> $jk <br> $hobby <br> $alamat <br> $kota <br> $pendidikan <br> $pekerjaan <br> $agama <br> $foto <br> $password <br> $username";
+                    echo "$nama <br> $tgl <br> $tempat_lahir <br> $jk <br> $hobby1 <br> $hobby2 <br> $hobby3 <br> $hobby4 <br> $hobby5  <br> $alamat <br> $kota <br> $pendidikan <br> $pekerjaan <br> $agama <br> $foto <br> $password <br> $username";
                 }
 
                 ?>
