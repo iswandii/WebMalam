@@ -80,11 +80,11 @@
                             </td>
                             <td class="sign">:</td>
                             <td>
-                                <input type="checkbox" name="hobby">Membaca
-                                <input type="checkbox" name="hobby">Memasak</input>
-                                <input type="checkbox" name="hobby">Memancing</input>
-                                <input type="checkbox" name="hobby">Main Game</input>
-                                <input type="checkbox" name="hobby">Ngoding</input>
+                                <input type="checkbox" name="membaca">Membaca
+                                <input type="checkbox" name="memasak">Memasak</input>
+                                <input type="checkbox" name="memancing">Memancing</input>
+                                <input type="checkbox" name="main_game">Main Game</input>
+                                <input type="checkbox" name="ngoding">Ngoding</input>
                             </td>
                         </tr>
                         <tr>
@@ -103,16 +103,16 @@
                             <td class="sign">:</td>
                             <td>
                                 <select name="kota" id="">
-                                    <option value="">Banda Aceh</option>
-                                    <option value="">Aceh Besar</option>
-                                    <option value="">Pidie</option>
-                                    <option value="">Bireun</option>
-                                    <option value="">Lhokseumawe</option>
-                                    <option value="">Aceh Jaya</option>
-                                    <option value="">Aceh Tengah</option>
-                                    <option value="">Simeulu</option>
-                                    <option value="">Aceh Tamiang</option>
-                                    <option value="">Meulaboh</option>
+                                    <option value="Banda Aceh">Banda Aceh</option>
+                                    <option value="Aceh Besar">Aceh Besar</option>
+                                    <option value="Pidie">Pidie</option>
+                                    <option value="Bireun">Bireun</option>
+                                    <option value="Lhokseumawe">Lhokseumawe</option>
+                                    <option value="Aceh Jaya">Aceh Jaya</option>
+                                    <option value="Aceh Tengah">Aceh Tengah</option>
+                                    <option value="Simeulu">Simeulu</option>
+                                    <option value="Aceh Tamiang">Aceh Tamiang</option>
+                                    <option value="Meulaboh">Meulaboh</option>
                                 </select>
                             </td>
                         </tr>
@@ -122,10 +122,11 @@
                             </td>
                             <td class="sign">:</td>
                             <td>
-                                <select name="kota" id="">
-                                    <option value="">SD Muhammadiyah I Banda Aceh</option>
-                                    <option value="">SD Negeri 1 Banda Aceh</option>
-                                    <option value="">SD Negeri 2 Banda Aceh</option>
+                                <select name="pendidikan" id="">
+                                    <option value="">SD</option>
+                                    <option value="">SMP</option>
+                                    <option value="">SMA</option>
+                                    <option value="">S1</option>
                                 </select>
                             </td>
                         </tr>
