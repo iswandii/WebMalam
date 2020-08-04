@@ -70,8 +70,8 @@
                             </td>
                             <td class="sign">:</td>
                             <td>
-                                <input type="radio" name="jenis" value="Laki - Laki">Laki - Laki
-                                <input type="radio" name="jenis" value="Perempuan">Perempuan
+                                <input type="radio" name="jk" value="Laki - Laki">Laki - Laki
+                                <input type="radio" name="jk" value="Perempuan">Perempuan
                             </td>
                         </tr>
                         <tr>
@@ -183,7 +183,7 @@
                     $nama           = $_POST['nama_lengkap'];
                     $tgl            = $_POST['tgl'];
                     $tempat_lahir   = $_POST['tempat_lahir'];
-                    $jk             = $_POST['jenis'];
+                    $jk             = $_POST['jk'];
                     $hobby          = $_POST['hobby'];
                     $alamat         = $_POST['alamat'];
                     $kota           = $_POST['kota'];
