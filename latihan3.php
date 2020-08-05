@@ -24,6 +24,24 @@
             border-bottom: 3px solid rgb(23, 169, 226);
             margin: 0 auto;
         }
+
+        table th {
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+
+        table td {
+            padding: 5px !important;
+        }
+
+        .title {
+            padding-left: 50px !important;
+            width: 30%;
+        }
+
+        .sign {
+            width: 10%;
+        }
     </style>
 </head>
 
@@ -185,7 +203,7 @@
                             </td>
                         </tr>
                 </table>
-                <input type="submit" name="input" value="Tampilkan">
+                <input class="btn btn-primary" type="submit" name="input" value="Tampilkan">
                 <br>
                 </form>
 
