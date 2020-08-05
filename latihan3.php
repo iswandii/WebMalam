@@ -35,7 +35,7 @@
         <div class="row">
             <div class="col col-lg-12">
                 <table class="table table-borderless">
-                    <form action="" method="post">
+                    <form action="" method="post" enctype="multipart/form-data">
                         <tr>
                             <td class="title">
                                 <label> Nama Lengkap</label>
@@ -205,11 +205,18 @@
                     $pendidikan     = !empty($_POST['pendidikan']) ? $_POST['pendidikan'] : "";
                     $pekerjaan      = $_POST['pekerjaan'];
                     $agama          = !empty($_POST['agama']) ? $_POST['agama'] : "";
-                    $foto           = $_POST['foto'];
+                    $foto           = $_FILES['foto']['name'];
+                    if (move_uploaded_file($_FILES['foto']['tmp_name'], 'image/' . $_FILES['foto']['name'])) {
+                        echo "Gambar berhasil di upload";
+                    } else {
+                        echo "Gambar  gagal di upload";
+                    }
+
                     $password       = $_POST['password'];
                     $username       = $_POST['username'];
 
-                    echo "$nama <br> $tgl <br> $tempat_lahir <br> $jk <br> $hobby1 <br> $hobby2 <br> $hobby3 <br> $hobby4 <br> $hobby5  <br> $alamat <br> $kota <br> $pendidikan <br> $pekerjaan <br> $agama <br> $foto <br> $password <br> $username";
+
+                    echo "$nama <br> $tgl <br> $tempat_lahir <br> $jk <br> $hobby1 <br> $hobby2 <br> $hobby3 <br> $hobby4 <br> $hobby5  <br> $alamat <br> $kota <br> $pendidikan <br> $pekerjaan <br> $agama <br> <img src='image/$foto'> <br> $password <br> $username";
                 }
 
                 ?>
