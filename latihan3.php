@@ -186,6 +186,7 @@
                         </tr>
                 </table>
                 <input type="submit" name="input" value="Tampilkan">
+                <br>
                 </form>
 
                 <?php
