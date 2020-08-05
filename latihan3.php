@@ -224,6 +224,7 @@
                     $pekerjaan      = $_POST['pekerjaan'];
                     $agama          = !empty($_POST['agama']) ? $_POST['agama'] : "";
                     $foto           = $_FILES['foto']['name'];
+                    // membuat kode agar bisa menampilkan foto di form biodata,
                     if (move_uploaded_file($_FILES['foto']['tmp_name'], 'image/' . $_FILES['foto']['name'])) {
                         echo "Gambar berhasil di upload";
                     } else {
