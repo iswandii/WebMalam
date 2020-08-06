@@ -236,16 +236,16 @@
                         <div class="collapse" id="ui-basic">
                             <ul class="nav flex-column sub-menu">
                                 <li class="nav-item">
-                                    <a class="nav-link" href="ui-features/buttons.php">Buttons</a>
+                                    <a class="nav-link" href="buttons.php">Buttons</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="ui-features/typography.php">Typography</a>
+                                    <a class="nav-link" href="typography.php">Typography</a>
                                 </li>
                             </ul>
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="forms/basic_elements.php">
+                        <a class="nav-link" href="basic_elements.php">
                             <i class="menu-icon mdi mdi-backup-restore"></i>
                             <span class="menu-title">Form elements</span>
                         </a>
@@ -257,13 +257,13 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="tables/basic-table.php">
+                        <a class="nav-link" href="basic-table.php">
                             <i class="menu-icon mdi mdi-table"></i>
                             <span class="menu-title">Tables</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="icons/font-awesome.php">
+                        <a class="nav-link" href="font-awesome.php">
                             <i class="menu-icon mdi mdi-sticker"></i>
                             <span class="menu-title">Icons</span>
                         </a>
@@ -277,19 +277,19 @@
                         <div class="collapse" id="auth">
                             <ul class="nav flex-column sub-menu">
                                 <li class="nav-item">
-                                    <a class="nav-link" href="samples/blank-page.php"> Blank Page </a>
+                                    <a class="nav-link" href="blank-page.php"> Blank Page </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="samples/login.php"> Login </a>
+                                    <a class="nav-link" href="login.php"> Login </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="samples/register.php"> Register </a>
+                                    <a class="nav-link" href="register.php"> Register </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="samples/error-404.php"> 404 </a>
+                                    <a class="nav-link" href="error-404.php"> 404 </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="samples/error-500.php"> 500 </a>
+                                    <a class="nav-link" href="error-500.php"> 500 </a>
                                 </li>
                             </ul>
                         </div>
