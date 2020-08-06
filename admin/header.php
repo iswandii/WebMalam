@@ -21,13 +21,13 @@
 
 <body>
     <div class="container-scroller">
-        <!-- partial:partials/_navbar.html -->
+        <!-- partial:partials/_navbar.php -->
         <nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
             <div class="text-center navbar-brand-wrapper d-flex align-items-top justify-content-center">
-                <a class="navbar-brand brand-logo" href="index.html">
+                <a class="navbar-brand brand-logo" href="index.php">
                     <img src="images/logo.svg" alt="logo" />
                 </a>
-                <a class="navbar-brand brand-logo-mini" href="index.html">
+                <a class="navbar-brand brand-logo-mini" href="index.php">
                     <img src="images/logo-mini.svg" alt="logo" />
                 </a>
             </div>
@@ -199,7 +199,7 @@
         </nav>
         <!-- partial -->
         <div class="container-fluid page-body-wrapper">
-            <!-- partial:partials/_sidebar.html -->
+            <!-- partial:partials/_sidebar.php -->
             <nav class="sidebar sidebar-offcanvas" id="sidebar">
                 <ul class="nav">
                     <li class="nav-item nav-profile">
@@ -222,7 +222,7 @@
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html">
+                        <a class="nav-link" href="index.php">
                             <i class="menu-icon mdi mdi-television"></i>
                             <span class="menu-title">Dashboard</span>
                         </a>
@@ -236,34 +236,34 @@
                         <div class="collapse" id="ui-basic">
                             <ul class="nav flex-column sub-menu">
                                 <li class="nav-item">
-                                    <a class="nav-link" href="pages/ui-features/buttons.html">Buttons</a>
+                                    <a class="nav-link" href="pages/ui-features/buttons.php">Buttons</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="pages/ui-features/typography.html">Typography</a>
+                                    <a class="nav-link" href="pages/ui-features/typography.php">Typography</a>
                                 </li>
                             </ul>
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="pages/forms/basic_elements.html">
+                        <a class="nav-link" href="pages/forms/basic_elements.php">
                             <i class="menu-icon mdi mdi-backup-restore"></i>
                             <span class="menu-title">Form elements</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="pages/charts/chartjs.html">
+                        <a class="nav-link" href="pages/charts/chartjs.php">
                             <i class="menu-icon mdi mdi-chart-line"></i>
                             <span class="menu-title">Charts</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="pages/tables/basic-table.html">
+                        <a class="nav-link" href="pages/tables/basic-table.php">
                             <i class="menu-icon mdi mdi-table"></i>
                             <span class="menu-title">Tables</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="pages/icons/font-awesome.html">
+                        <a class="nav-link" href="pages/icons/font-awesome.php">
                             <i class="menu-icon mdi mdi-sticker"></i>
                             <span class="menu-title">Icons</span>
                         </a>
@@ -277,19 +277,19 @@
                         <div class="collapse" id="auth">
                             <ul class="nav flex-column sub-menu">
                                 <li class="nav-item">
-                                    <a class="nav-link" href="pages/samples/blank-page.html"> Blank Page </a>
+                                    <a class="nav-link" href="pages/samples/blank-page.php"> Blank Page </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="pages/samples/login.html"> Login </a>
+                                    <a class="nav-link" href="pages/samples/login.php"> Login </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="pages/samples/register.html"> Register </a>
+                                    <a class="nav-link" href="pages/samples/register.php"> Register </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="pages/samples/error-404.html"> 404 </a>
+                                    <a class="nav-link" href="pages/samples/error-404.php"> 404 </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="pages/samples/error-500.html"> 500 </a>
+                                    <a class="nav-link" href="pages/samples/error-500.php"> 500 </a>
                                 </li>
                             </ul>
                         </div>
