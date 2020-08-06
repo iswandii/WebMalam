@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Popup Box Pada JS</title>
+</head>
+
+<body>
+    <!-- Popup Box / Dialog Box adalah sebuah windows kecil pada browser kita yang dapat kita munculkan sebagai alat
+    interaksi yang digunakan agar user dapat berdialog dengan halaman Web.
+
+    Ada 3 buah popup box yang dapat kita gunakan, yaitu :
+    1. alert
+    alert('hello world!');
+    2. prompt
+    prompt('Masukkan nama');
+    3. confirm
+    confirm ('Kamu yakin??'); -->
+
+    <script>
+        // var tes = confirm('Kamu yakin ??')
+        // if (tes === true) {
+        //     alert('User menekan OK!')
+        // } else {
+        //     alert('User menekan CANCEL!')
+        // }
+        alert('Selamat datang..');
+        var lagi = true;
+        while (lagi) {
+            var nama = prompt('Masukkan nama');
+            alert('Halo ' + nama);
+            lagi = confirm('Coba lagi ?');
+        }
+        alert('Terimakasih..');
+    </script>
+</body>
+
+</html>
