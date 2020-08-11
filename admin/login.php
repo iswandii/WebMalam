@@ -21,7 +21,7 @@
 </head>
 
 <body>
-  <form action="" method="post">
+  <form action="proses/proses_login.php" method="post">
     <div class="container-scroller">
       <div class="container-fluid page-body-wrapper full-page-wrapper auth-page">
         <div class="content-wrapper d-flex align-items-center auth auth-bg-1 theme-one">
@@ -52,7 +52,7 @@
                     </div>
                   </div>
                   <div class="form-group">
-                    <button class="btn btn-primary submit-btn btn-block" name="login">Login</button>
+                    <button class="btn btn-primary submit-btn btn-block" name="login" type="submit">Login</button>
                   </div>
                   <div class="form-group d-flex justify-content-between">
                     <div class="form-check form-check-flat mt-0">
@@ -88,19 +88,6 @@
           </div>
         </div>
   </form>
-
-  <?php
-  if (isset($_POST['login'])) {
-    $username   = $_POST['username'];
-    $password   = $_POST['password'];
-
-    if ($username == 'Iswandi' && $password == '123') {
-      echo "window.location.href='index.php'";
-    } else {
-      echo "<script?>alert('Username atau Password salah')</script>";
-    }
-  }
-  ?>
   <!-- content-wrapper ends -->
   </div>
   <!-- page-body-wrapper ends -->
