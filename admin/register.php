@@ -51,7 +51,7 @@
                   </div>
                 </div>
 
-                <div class="form-group">
+                <!-- <div class="form-group">
                   <div class="input-group">
                     <input type="password" class="form-control" placeholder="Confirm Password" name="password">
                     <div class="input-group-append">
@@ -60,7 +60,7 @@
                       </span>
                     </div>
                   </div>
-                </div>
+                </div> -->
 
                 <div class="form-group">
                   <div class="input-group">
