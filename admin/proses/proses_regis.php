@@ -2,6 +2,7 @@
     include 'koneksi.php';
 
     if (isset($_POST['regis'])) {
+        $id = uniqid();
         $username = $_POST['username'];
         $password = $_POST['password'];
         $email = $_POST['email'];
