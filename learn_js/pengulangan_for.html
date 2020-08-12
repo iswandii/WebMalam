@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pengulangan For</title>
+</head>
+
+<body>
+    For => sebuah keyword lain selain while yang dapat kita lakukan untuk melakukan pengulangan. Sebetulnya kalau kita
+    sudah paham mengenai cara kerja dari While, For ini sebetulnya sama saja, tapi lebih rapi dan ringkas karena ditulis
+    dalam 1 baris tidak seperti while yang tercecer.
+
+    <!-- <script>
+        for (var nilaiAwal = 1; nilaiAwal <= 10; i++) {
+            console.log('Hello World ' + nilaiAwal + 'x');
+        }
+    </script> -->
+
+    Latihan
+
+    <script>
+        var jmlAngkot, angkotBeroperasi, noAngkot;
+        jmlAngkot = 10;
+        angkotBeroperasi = 8;
+        noAngkot = 1;
+
+        while (noAngkot <= angkotBeroperasi) {
+            console.log('Angkot No. ' + noAngkot + ' beroperasi dengan baik.')
+            noAngkot++;
+        }
+        for (noAngkot; noAngkot <= jmlAngkot; noAngkot++) {
+            console.log('Angkot No. ' + noAngkot + ' sedang tidak beroperasi.');
+        }
+    </script>
+
+</body>
+
+</html>
