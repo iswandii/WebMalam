@@ -188,7 +188,7 @@ session_start();
                             <a class="dropdown-item">
                                 Check Inbox
                             </a>
-                            <a class="dropdown-item" href="login.php">
+                            <a class="dropdown-item" href="proses/logout.php">
                                 Sign Out
                             </a>
                         </div>
