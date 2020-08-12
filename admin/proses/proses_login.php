@@ -2,7 +2,7 @@
 include('koneksi.php');
 if (isset($_POST['login'])) {
     $username = $_POST['username'];
-    $password = $_POST['password'];
+    $password = md5($_POST['password']);
 
     $query = mysqli_query($koneksi, "SELECT * FROM user WHERE username ='$username' AND password='$password'");
     $cek = mysqli_num_rows($query);
