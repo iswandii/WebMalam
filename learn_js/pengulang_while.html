@@ -26,6 +26,61 @@
         }
         Kalau kita menuliskan syntaks nya seperti ini, maka kita telah melakukan sesuatu yang dinamakan Infinite Loop / looping forever
     </script> -->
+
+    <!-- ATAU 
+        <script>
+        while (false) {
+            console.log('Hello World');
+        }
+        Kalau kita menuliskan syntaks nya seperti ini, maka aksinya tidak akan pernah dijalankan
+    </script> -->
+
+    <!-- Cara agar tidak menjadi Infinite Loop / looping forever, ada 2 cara :
+    1. Dihentikan oleh user
+    <script>
+        var ulang = true;
+        while (ulang) {
+            console.log('Hello World');
+            ulang = confirm('lagi?');
+        }
+    </script>
+    2. Dihentikan oleh program => untuk menuliskan while tersebut ada 3 penting:
+    1. Kita harus punya nilai awal
+    2. Kita harus punya kondisi terminasi kapan loopnya akan berhenti
+    3. Harus ada increment / decrement
+
+    nilai awal
+    while(kondisi terminasi){
+
+    aksi
+
+    increment / decrement
+    }
+    <script>
+        var nilaiAwal = 1;
+        while (nilaiAwal <= 5) {
+            console.log('Hello World');
+            nilaiAwal++;
+        }
+    </script>
+
+    Kalo ingin ada 1x,2x,3x dst. Maka querynya adalah :
+    <script>
+        var nilaiAwal = 1;
+        while (nilaiAwal <= 5) {
+            console.log('Hello World ' + nilaiAwal + 'x');
+            nilaiAwal++;
+        }
+    </script> -->
+
+    <!-- <script>
+        var angkot = 1;
+        while (angkot <= 10) {
+            console.log('Angkot No. ' + angkot + ' beroperasi dengan baik.');
+            angkot++;
+        }
+    </script> -->
+
 </body>
 
 </html>
