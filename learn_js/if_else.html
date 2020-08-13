@@ -116,7 +116,7 @@ akan mengecek nilai hasil dari kondisinya. -->
     }
 </script> -->
 
-ATAU
+<!-- ATAU
 
 <script>
     var item = prompt('masukkan nama makanan / minuman : \n (cth : nasi, daging , susu, hamburger, softdrink)');
@@ -138,7 +138,45 @@ ATAU
             alert('anda memasukkan nama makanan / minuman yang salah!');
             break;
     }
+</script> -->
+
+<!-- PENGULANGAN & PENGKONDISIAN BERSARANG => menyimpan pengkondisian didalam pengulangan atau sebaliknya atau menyimpan
+pengulangan didalam pengulangan lagi, karena jika kita membuat program atau aplikasi di dunia nyata, hal ini pasti akan
+terjadi, jadi kita harus paham betul mengenai perilaku dari pengulangan dan pengkondisisan ini.
+
+<script>
+    var s = '';
+    for (var i = 0; i < 10; i++) {
+        for (var j = 0; j < i; j++) {
+            s += '*';
+        }
+        s += '\n';
+    }
+    console.log(s);
+</script> -->
+
+<!-- <script>
+    var s = '';
+    for (var i = 10; i > 0; i--) {
+        for (var j = 0; j < i; j++) {
+            s += '*';
+        }
+        s += '\n';
+    }
+    console.log(s);
+</script> -->
+
+<script>
+    var s = '';
+    for (var i = 10; i > 0; i--) {
+        for (var j = 0; j < i; j++) {
+            s += '*';
+        }
+        s += '\n';
+    }
+    console.log(s);
 </script>
+
 
 
 
