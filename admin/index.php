@@ -2,7 +2,7 @@
 <!-- partial -->
 <div class="main-panel">
   <div class="content-wrapper">
-    <div class="row purchace-popup">
+    <!-- <div class="row purchace-popup">
       <div class="col-12">
         <span class="d-flex alifn-items-center">
           <p>Like what you see? Check out our premium version for more.</p>
@@ -11,7 +11,7 @@
           <i class="mdi mdi-close popup-dismiss"></i>
         </span>
       </div>
-    </div>
+    </div> -->
     <div class="row">
       <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 grid-margin stretch-card">
         <div class="card card-statistics">
@@ -579,25 +579,4 @@
   </footer>
   <!-- partial -->
 </div>
-<!-- main-panel ends -->
-</div>
-<!-- page-body-wrapper ends -->
-</div>
-<!-- container-scroller -->
-
-<!-- plugins:js -->
-<script src="vendors/js/vendor.bundle.base.js"></script>
-<script src="vendors/js/vendor.bundle.addons.js"></script>
-<!-- endinject -->
-<!-- Plugin js for this page-->
-<!-- End plugin js for this page-->
-<!-- inject:js -->
-<script src="js/off-canvas.js"></script>
-<script src="js/misc.js"></script>
-<!-- endinject -->
-<!-- Custom js for this page-->
-<script src="js/dashboard.js"></script>
-<!-- End custom js for this page-->
-</body>
-
-</html>
+<?php include 'footer.php' ?>

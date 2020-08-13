@@ -572,80 +572,67 @@
         </div>
       </div> -->
 
-      <div class="col-md-12 grid-margin stretch-card">
-        <table class="table table-striped table-active">
-          <thead class=>
-            <tr>
-              <th scope="col">No </th>
-              <th scope="col">Username</th>
-              <th scope="col">Email</th>
-              <th scope="col">No HP</th>
-              <th scope="col">Level</th>
-              <th scope="col">Opsi</th>
-            </tr>
-          </thead>
-          <tbody>
+      <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title">Tabel Data User</h4>
+            <div class="table-responsive">
+              <table class="table table-striped table-bordered data" id="example">
+                <thead>
+                  <tr>
+                    <th>No </th>
+                    <th>Username</th>
+                    <th>Email</th>
+                    <th>No HP</th>
+                    <th>Level</th>
+                    <th>Opsi</th>
+                  </tr>
+                </thead>
+                <tbody>
 
-            <!-- Proses menampilkan data dari database -->
+                  <!-- Proses menampilkan data dari database -->
 
-            <?php
-            $show_query = mysqli_query($koneksi, "SELECT * FROM user");
-            if (mysqli_num_rows($show_query) == 0) {
-              echo "<tr> <td> Tidak ada data</td></tr>";
-            } else {
-              $no = 1;
-              while ($data = mysqli_fetch_assoc($show_query)) {
-            ?>
-                <tr>
-                  <th scope='row'><?php echo $no; ?></th>
-                  <td><?php echo $data['username'];  ?></td>
-                  <td><?php echo $data['email']; ?></td>
-                  <td><?php echo $data['no_hp']; ?></td>
-                  <td><?php echo $data['level']; ?></td>
-                  <td><button type="submit" class="btn btn-primary">Hapus</button>
-                    <button type="submit" class="btn btn-primary">View</button></td>
+                  <?php
+                  $show_query = mysqli_query($koneksi, "SELECT * FROM user");
+                  if (mysqli_num_rows($show_query) == 0) {
+                    echo "<tr> <td> Tidak ada data</td></tr>";
+                  } else {
+                    $no = 1;
+                    while ($data = mysqli_fetch_assoc($show_query)) {
+                  ?>
+                      <tr>
+                        <th><?php echo $no; ?></th>
+                        <td><?php echo $data['username'];  ?></td>
+                        <td><?php echo $data['email']; ?></td>
+                        <td><?php echo $data['no_hp']; ?></td>
+                        <td><?php echo $data['level']; ?></td>
+                        <td>
+                          <a href="proses/hapus.php" class="btn btn-danger">Hapus</a>
+                          <a href="proses/hapus.php" class="btn btn-success">View</a>
+                          <a href="proses/hapus.php" class="btn btn-primary">Edit</a>
+                        </td>
 
-              <?php
-                $no++;
-              }
-            }
-              ?>
-          </tbody>
-        </table>
+                    <?php
+                      $no++;
+                    }
+                  }
+                    ?>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <!-- content-wrapper ends -->
+        <!-- partial:partials/_footer.html -->
+        <!-- <footer class="footer">
+          <div class="container-fluid clearfix">
+            <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © 2018
+              <a href="http://www.bootstrapdash.com/" target="_blank">Bootstrapdash</a>. All rights reserved.</span>
+            <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with
+              <i class="mdi mdi-heart text-danger"></i>
+            </span>
+          </div>
+        </footer> -->
+        <!-- partial -->
       </div>
-    </div>
-  </div>
-  <!-- content-wrapper ends -->
-  <!-- partial:partials/_footer.html -->
-  <footer class="footer">
-    <div class="container-fluid clearfix">
-      <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © 2018
-        <a href="http://www.bootstrapdash.com/" target="_blank">Bootstrapdash</a>. All rights reserved.</span>
-      <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with
-        <i class="mdi mdi-heart text-danger"></i>
-      </span>
-    </div>
-  </footer>
-  <!-- partial -->
-</div>
-<!-- main-panel ends -->
-</div>
-<!-- page-body-wrapper ends -->
-</div>
-<!-- container-scroller -->
-<!-- plugins:js -->
-<script src="../js/bootstrap.js"></script>
-<script src="vendors/js/vendor.bundle.base.js"></script>
-<script src="vendors/js/vendor.bundle.addons.js"></script>
-<!-- endinject -->
-<!-- Plugin js for this page-->
-<!-- End plugin js for this page-->
-<!-- inject:js -->
-<script src="js/off-canvas.js"></script>
-<script src="js/misc.js"></script>
-<!-- endinject -->
-<!-- Custom js for this page-->
-<!-- End custom js for this page-->
-</body>
-
-</html>
+      <?php include 'footer.php' ?>

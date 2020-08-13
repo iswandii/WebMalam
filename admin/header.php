@@ -1,6 +1,7 @@
 <?php
 session_start();
 include 'proses/koneksi.php';
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,7 +21,12 @@ include 'proses/koneksi.php';
     <!-- inject:css -->
     <link rel="stylesheet" href="css/style.css">
     <!-- endinject -->
-    <link rel="shortcut icon" href="images/favicon.png" />
+    <link rel="shortcut icon" href="images/favicon.png">
+    <!-- datatables -->
+    <link rel="stylesheet" href="vendors/DataTabless/DataTables-1.10.21/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="vendors/datatables/css/bootstrap.css">
+    <link rel="stylesheet" href="vendors/DataTabless/Buttons-1.6.3/css/buttons.bootstrap4.min.css">
+    <!-- <link rel="stylesheet" href="vendors/datatables/css/dataTables.bootstrap4.min.css"> -->
 </head>
 
 <body>
