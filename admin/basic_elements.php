@@ -3,7 +3,7 @@
 <div class="main-panel">
   <div class="content-wrapper">
     <div class="row">
-      <div class="col-md-6 d-flex align-items-stretch grid-margin">
+      <!-- <div class="col-md-6 d-flex align-items-stretch grid-margin">
         <div class="row flex-grow">
           <div class="col-12">
             <div class="card">
@@ -54,29 +54,45 @@
             </div>
           </div>
         </div>
-      </div>
-      <div class="col-md-6 grid-margin stretch-card">
+      </div> -->
+      <div class="col-md-12 grid-margin stretch-card">
         <div class="card">
           <div class="card-body">
-            <h4 class="card-title">Form Profil Instruktur</h4>
-            <p class="card-description">
-              Masukkan Biodata Anda
-            </p>
-            <form class="forms-sample">
+            <h4 class="card-title">Form Data User</h4>
+            <p class="card-description"> Masukkan Data User </p>
+            <form class="forms-sample" action="proses/input_user.php" method="POST">
+
               <div class="form-group">
-                <label for="exampleInputName1">Nama</label>
-                <input type="text" class="form-control" id="exampleInputName1" placeholder="Name">
-              </div>
-              <div class="form-group">
-                <label for="exampleInputName1">Tempat Lahir</label>
-                <input type="text" class="form-control" id="exampleInputName1" placeholder="Name">
-              </div>
-              <div class="form-group">
-                <label for="exampleInputName1">Tanggal Lahir</label>
-                <input type="date" class="form-control" id="exampleInputName1" placeholder="Name">
+                <label for="exampleInputName1">Username</label>
+                <input type="text" class="form-control" id="exampleInputName1" placeholder="Username" name="username" required>
               </div>
 
               <div class="form-group">
+                <label for="exampleInputName1">Password</label>
+                <input type="password" class="form-control" id="exampleInputName1" placeholder="Password" name="password" required>
+              </div>
+
+              <div class="form-group">
+                <label for="exampleInputName1">Email</label>
+                <input type="email" class="form-control" id="exampleInputName1" placeholder="Email" name="email" required>
+              </div>
+
+              <div class="form-group">
+                <label for="exampleInputName1">No HP</label>
+                <input type="text" class="form-control" id="exampleInputName1" placeholder="No Hp" name="no_hp" required>
+              </div>
+
+              <div class="form-group">
+                <label for="exampleFormControlSelect2">Pilih User</label>
+                <select class="form-control" id="exampleFormControlSelect2" name="level">
+                  <option value="admin">Admin</option>
+                  <option value="operator">Operator</option>
+                  <option value="autor">Autor</option>
+
+                </select>
+              </div>
+
+              <!-- <div class="form-group">
                 <label for="exampleFormControlSelect2">Jenis Kelamin</label>
                 <select class="form-control" id="exampleFormControlSelect2">
                   <option>Laki-Laki</option>
@@ -126,15 +142,15 @@
                     <button class="file-upload-browse btn btn-info" type="button">Upload</button>
                   </span>
                 </div>
-              </div>
+              </div> -->
 
-              <button type="submit" class="btn btn-success mr-2">Submit</button>
-              <button class="btn btn-light">Cancel</button>
+              <button type="submit" class="btn btn-success mr-2" name=input_user>Submit</button>
+              <button class="btn btn-light" type="reset">Reset</button>
             </form>
           </div>
         </div>
       </div>
-      <div class="col-md-5 d-flex align-items-stretch">
+      <!-- <div class="col-md-5 d-flex align-items-stretch">
         <div class="row flex-grow">
           <div class="col-12 grid-margin">
             <div class="card">
@@ -228,8 +244,8 @@
             </div>
           </div>
         </div>
-      </div>
-      <div class="col-md-7 grid-margin stretch-card">
+      </div> -->
+      <!-- <div class="col-md-7 grid-margin stretch-card">
         <div class="card">
           <div class="card-body">
             <h4 class="card-title">Input size</h4>
@@ -283,8 +299,8 @@
             </div>
           </div>
         </div>
-      </div>
-      <div class="col-md-6 grid-margin stretch-card">
+      </div> -->
+      <!-- <div class="col-md-6 grid-margin stretch-card">
         <div class="card">
           <div class="card-body">
             <h4 class="card-title">Checkbox Controls</h4>
@@ -345,8 +361,8 @@
             </form>
           </div>
         </div>
-      </div>
-      <div class="col-md-6 grid-margin stretch-card">
+      </div> -->
+      <!-- <div class="col-md-6 grid-margin stretch-card">
         <div class="card">
           <div class="card-body">
             <h4 class="card-title">Checkbox Flat Controls</h4>
@@ -407,8 +423,8 @@
             </form>
           </div>
         </div>
-      </div>
-      <div class="col-12 grid-margin">
+      </div> -->
+      <!-- <div class="col-12 grid-margin">
         <div class="card">
           <div class="card-body">
             <h4 class="card-title">Horizontal Two column</h4>
@@ -554,6 +570,48 @@
             </form>
           </div>
         </div>
+      </div> -->
+
+      <div class="col-md-12 grid-margin stretch-card">
+        <table class="table table-striped table-active">
+          <thead class=>
+            <tr>
+              <th scope="col">No </th>
+              <th scope="col">Username</th>
+              <th scope="col">Email</th>
+              <th scope="col">No HP</th>
+              <th scope="col">Level</th>
+              <th scope="col">Opsi</th>
+            </tr>
+          </thead>
+          <tbody>
+
+            <!-- Proses menampilkan data dari database -->
+
+            <?php
+            $show_query = mysqli_query($koneksi, "SELECT * FROM user");
+            if (mysqli_num_rows($show_query) == 0) {
+              echo "<tr> <td> Tidak ada data</td></tr>";
+            } else {
+              $no = 1;
+              while ($data = mysqli_fetch_assoc($show_query)) {
+            ?>
+                <tr>
+                  <th scope='row'><?php echo $no; ?></th>
+                  <td><?php echo $data['username'];  ?></td>
+                  <td><?php echo $data['email']; ?></td>
+                  <td><?php echo $data['no_hp']; ?></td>
+                  <td><?php echo $data['level']; ?></td>
+                  <td><button type="submit" class="btn btn-primary">Hapus</button>
+                    <button type="submit" class="btn btn-primary">View</button></td>
+
+              <?php
+                $no++;
+              }
+            }
+              ?>
+          </tbody>
+        </table>
       </div>
     </div>
   </div>
@@ -576,6 +634,7 @@
 </div>
 <!-- container-scroller -->
 <!-- plugins:js -->
+<script src="../js/bootstrap.js"></script>
 <script src="vendors/js/vendor.bundle.base.js"></script>
 <script src="vendors/js/vendor.bundle.addons.js"></script>
 <!-- endinject -->

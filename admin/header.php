@@ -1,5 +1,6 @@
 <?php
 session_start();
+include 'proses/koneksi.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
