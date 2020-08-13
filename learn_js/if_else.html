@@ -44,7 +44,7 @@
         }
     </script> -->
 
-LATIHAN =>
+<!-- LATIHAN =>
 
 <script>
     var jmlAngkot, angkotBeroperasi, noAngkot;
@@ -61,7 +61,86 @@ LATIHAN =>
             console.log('Angkot No. ' + noAngkot + ' sedang tidak beroperasi.');
         }
     }
+</script> -->
+
+
+<!-- KEYWORD TERAKHIR DARI PENGKONDISIAN YAITU SWITCH
+Switch = penggunaannya mirip dengan if dan else, dengan menggunakan switch, fungsinya juga mirip tapi nanti yang
+membedakan adalah kondisinya dimana switch itu tidak memiliki kondisi yang banyak, kondisinya hanya ada 1, nanti switch
+akan mengecek nilai hasil dari kondisinya. -->
+
+<!-- Sintaksnnya 'switch' lalu dalam kurung 'ekspresinya' yang nanti akan menghasilkan sebuah nilai, kita batasi dengan kurung kurawal buka dan tutup, didalamnya kita mengecek menggunakan 'case' atau kasus-kasus hasil dari 'ekspresinya'. Misalnya jika 'casenya' atau nilai dari 'ekspresinya' itu 'nilai 1', maka jalankan 'aksi 1' lalu setelah setiap aksinya kita boleh aja menambahkan sebuah keyword 'break;' yang bersifat opsional, ini supaya ketika 'aksi 1' dijalankan dia keluar dari 'switchnya' atau jika 'nilai 2' maka jalankan 'aksi 2', sampai 'nilai n'. Jika semua 'nilainya' tidak terpenuhi maka akan masuk ke 'aksi defaultnya' 
+
+    switch (ekspresi) { 
+        case nilai 1:
+            aksi 1
+            break;
+        case nilai 2:
+            aksi 2
+            break;
+        case nilai n:
+            aksi n
+            break;
+        default:
+            aksi default
+        break;
+    } -->
+
+<!-- <script>
+    var item = prompt('masukkan nama makanan / minuman : \n (cth : nasi, daging , susu, hamburger, softdrink)');
+
+    switch (item) {
+        case 'nasi':
+            alert('makanan / minuman SEHAT!');
+
+            break;
+        case 'daging':
+            alert('makanan / minuman SEHAT!');
+
+            break;
+        case 'susu':
+            alert('makanan / minuman SEHAT!');
+
+            break;
+        case 'hamburger':
+            alert('makanan / minuman TIDAK SEHAT!');
+
+            break;
+        case 'softdrink':
+            alert('makanan / minuman TIDAK SEHAT!');
+
+            break;
+        default:
+            alert('anda memasukkan nama makanan / minuman yang salah!');
+            break;
+    }
+</script> -->
+
+ATAU
+
+<script>
+    var item = prompt('masukkan nama makanan / minuman : \n (cth : nasi, daging , susu, hamburger, softdrink)');
+
+    switch (item) {
+        case 'nasi':
+        case 'daging':
+        case 'susu':
+            alert('makanan / minuman SEHAT!');
+
+            break;
+
+        case 'hamburger':
+        case 'softdrink':
+            alert('makanan / minuman TIDAK SEHAT!');
+
+            break;
+        default:
+            alert('anda memasukkan nama makanan / minuman yang salah!');
+            break;
+    }
 </script>
+
+
 
 
 </body>
