@@ -256,9 +256,9 @@ include 'proses/koneksi.php';
                             </div>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="basic_elements.php">
+                            <a class="nav-link" href="data_user.php">
                                 <i class="menu-icon mdi mdi-backup-restore"></i>
-                                <span class="menu-title">Form elements</span>
+                                <span class="menu-title">Data User</span>
                             </a>
                         </li>
 

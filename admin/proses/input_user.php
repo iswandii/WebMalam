@@ -15,11 +15,11 @@
 
         if ($query_input) {
             echo '<script>alert ("data user berhasil di input")
-            window.location.href="../basic_elements.php";
+            window.location.href="../data_user.php";
             </script>';
         } else {
             echo '<script>alert ("data user gagal di input")
-            window.location.href="../basic_elements.php";
+            window.location.href="../data_user.php";
             </script>';
         }
     }
