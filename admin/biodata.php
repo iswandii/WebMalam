@@ -15,33 +15,12 @@ function tambah($koneksi)
         $foto = $_FILES['foto']['name'];
 
         //cek dulu jika ada gambar produk jalankan coding ini
-        if ($foto != "") {
-            $ekstensi_diperbolehkan = array('png', 'jpg'); //ekstensi file gambar yang bisa diupload 
-            $x = explode('.', $foto); //memisahkan nama file dengan ekstensi yang diupload
-            $ekstensi = strtolower(end($x));
-            $file_tmp = $_FILES['foto']['tmp_name'];
-            $angka_acak     = rand(1, 999);
-            $nama_gambar_baru = $angka_acak . '-' . $foto; //menggabungkan angka acak dengan nama file sebenarnya
-            if (in_array($ekstensi, $ekstensi_diperbolehkan) === true) {
-                move_uploaded_file($file_tmp, 'gambar/' . $nama_gambar_baru); //memindah file gambar ke folder gambar
-                // jalankan query INSERT untuk menambah data ke database pastikan sesuai urutan (id tidak perlu karena dibikin otomatis)
-
-                $query_input = mysqli_query($koneksi, "INSERT INTO biodata (id_biodata,nama, tanggal_lahir, tempat_lahir, jenis_kelamin, alamat, foto) VALUES (md5('$id'),'$nama','$tgl_lahir','$tmp_lahir','$jk','$alamat','$foto')");
-                // periska query apakah ada error
-                if (!$query_input) {
-                    die("Query gagal dijalankan: " . mysqli_errno($koneksi) .
-                        " - " . mysqli_error($koneksi));
-                } else {
-                    //tampil alert dan akan redirect ke halaman biodata.php
-                    //silahkan ganti biodata.php sesuai halaman yang akan dituju
-                    echo "<script>alert('Data berhasil ditambah.');window.location='biodata.php';</script>";
-                }
-            } else {
-                //jika file ekstensi tidak jpg dan png maka alert ini yang tampil
-                echo "<script>alert('Ekstensi gambar yang boleh hanya jpg atau png.');window.location='biodata.php';</script>";
-            }
+        if (move_uploaded_file($_FILES['foto']['tmp_name'], 'gambar/' . $_FILES['foto']['name'])) {
+            echo "Gambar berhasil di upload";
         } else {
-            $query_input = mysqli_query($koneksi, "INSERT INTO biodata VALUES (md5('$id'),'$nama','$tgl_lahir','$tmp_lahir','$jk','$alamat',null)");
+            echo "Gambar  gagal di upload";
+        } {
+            $query_input = mysqli_query($koneksi, "INSERT INTO biodata (id_biodata,nama, tanggal_lahir, tempat_lahir, jenis_kelamin, alamat, foto) VALUES (md5('$id'),'$nama','$tgl_lahir','$tmp_lahir','$jk','$alamat','$foto')");
             // periska query apakah ada error
             if (!$query_input) {
                 die("Query gagal dijalankan: " . mysqli_errno($koneksi) .
@@ -200,9 +179,9 @@ function tambah($koneksi)
             function ubah($koneksi)
             {
 
-                if (isset($_POST['update_kategori'])) {
-                    $id = $_POST['id_kategori'];
-                    $nama_kategori = $_POST['nama_kategori'];
+                if (isset($_POST['update_biodata'])) {
+                    $id = $_POST['id_biodata'];
+                    $nama_kategori = $_POST['nama'];
 
                     if (!empty($nama_kategori)) {
                         $query_update = mysqli_query($koneksi, "UPDATE kategori SET nama_kategori='$nama_kategori' WHERE id_kategori='$id'");
