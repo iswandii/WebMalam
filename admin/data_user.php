@@ -144,7 +144,7 @@
                 </div>
               </div> -->
 
-              <button type="submit" class="btn btn-success mr-2" name=input_user>Submit</button>
+              <button type="submit" class="btn btn-success mr-2" name="input_user">Submit</button>
               <button class="btn btn-light" type="reset">Reset</button>
             </form>
           </div>
@@ -611,12 +611,13 @@
                           <a href="proses/proses_view.php?id=<?php echo $data['id_user']; ?>" class="btn btn-success">View</a>
                           <a href="edit_user.php?id=<?php echo $data['id_user']; ?>" class="btn btn-primary">Edit</a>
                         </td>
+                      </tr>
 
-                    <?php
+                  <?php
                       $no++;
                     }
                   }
-                    ?>
+                  ?>
                 </tbody>
               </table>
             </div>

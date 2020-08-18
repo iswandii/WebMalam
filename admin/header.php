@@ -247,10 +247,10 @@ include 'proses/koneksi.php';
                             <div class="collapse" id="ui-basic">
                                 <ul class="nav flex-column sub-menu">
                                     <li class="nav-item">
-                                        <a class="nav-link" href="buttons.php">Buttons</a>
+                                        <a class="nav-link" href="kategori.php">Kategori</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="typography.php">Typography</a>
+                                        <a class="nav-link" href="biodata.php">Biodata</a>
                                     </li>
                                 </ul>
                             </div>
