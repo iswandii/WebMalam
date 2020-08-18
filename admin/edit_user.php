@@ -39,12 +39,12 @@
 
                             <div class="form-group">
                                 <label for="exampleInputName1">Email</label>
-                                <input type="email" class="form-control" id="exampleInputName1" placeholder="Email" name="email" value="<?php echo $data['email'] ?>"" required>
+                                <input type="email" class="form-control" id="exampleInputName1" placeholder="Email" name="email" value="<?php echo $data['email'] ?>" required>
                             </div>
 
                             <div class=" form-group">
                                 <label for="exampleInputName1">No HP</label>
-                                <input type="text" class="form-control" id="exampleInputName1" placeholder="No Hp" name="no_hp" value="<?php echo $data['no_hp'] ?>"" required>
+                                <input type="text" class="form-control" id="exampleInputName1" placeholder="No Hp" name="no_hp" value="<?php echo $data['no_hp'] ?>" required>
                             </div>
 
                             <div class=" form-group">

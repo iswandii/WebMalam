@@ -252,6 +252,9 @@ include 'proses/koneksi.php';
                                     <li class="nav-item">
                                         <a class="nav-link" href="biodata.php">Biodata</a>
                                     </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="postingan.php">Postingan</a>
+                                    </li>
                                 </ul>
                             </div>
                         </li>

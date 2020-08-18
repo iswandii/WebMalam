@@ -5,24 +5,25 @@
     // --- Fungsi tambah data (Create)
     function tambah($koneksi)
     {
-        if (isset($_POST['input_kategori'])) {
+        if (isset($_POST['input_kategori'])) :
             $id = uniqid();
             $nama_kategori = $_POST['nama_kategori'];
 
             if (!empty($nama_kategori)) {
-                $query_input = "INSERT INTO kategori VALUES (md5('$id'),'$nama_kategori')";
-                $simpan = mysqli_query($koneksi, $query_input);
-                if ($simpan && isset($_GET['aksi'])) {
+                $query_input = mysqli_query($koneksi, "INSERT INTO kategori VALUES (md5('$id'),'$nama_kategori')");
+
+                if ($query_input && isset($_GET['aksi'])) {
                     if ($_GET['aksi'] == 'create') {
-                        echo '<script>alert("Data gagal disimpan");
-                        window.location.href="kategori.php"
+                        echo '<script>alert("Data berhasil disimpan");
+                        window.location.href="kategori.php";
+                        window.history.back();
                         </script>';
+                    } else {
+                        echo '<script>alert("Data gagal disimpan")</script>';
                     }
                 }
-            } else {
-                echo '<script>alert("Data gagal disimpan")</script>';
             }
-        }
+        endif;
 
     ?>
 
@@ -186,6 +187,7 @@
                                 switch ($_GET['aksi']) {
                                     case 'create':
                                         tambah($koneksi);
+                                        tampil_data($koneksi);
                                         break;
                                     case 'update':
                                         ubah($koneksi);

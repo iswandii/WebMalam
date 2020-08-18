@@ -26,14 +26,14 @@ function tambah($koneksi)
                 move_uploaded_file($file_tmp, 'gambar/' . $nama_gambar_baru); //memindah file gambar ke folder gambar
                 // jalankan query INSERT untuk menambah data ke database pastikan sesuai urutan (id tidak perlu karena dibikin otomatis)
 
-                $query_input = mysqli_query($koneksi, "INSERT INTO biodata VALUES (md5('$id'),'$nama','$tgl_lahir','$tmp_lahir','$jk','$alamat','$foto')");
+                $query_input = mysqli_query($koneksi, "INSERT INTO biodata (id_biodata,nama, tanggal_lahir, tempat_lahir, jenis_kelamin, alamat, foto) VALUES (md5('$id'),'$nama','$tgl_lahir','$tmp_lahir','$jk','$alamat','$foto')");
                 // periska query apakah ada error
                 if (!$query_input) {
                     die("Query gagal dijalankan: " . mysqli_errno($koneksi) .
                         " - " . mysqli_error($koneksi));
                 } else {
-                    //tampil alert dan akan redirect ke halaman index.php
-                    //silahkan ganti index.php sesuai halaman yang akan dituju
+                    //tampil alert dan akan redirect ke halaman biodata.php
+                    //silahkan ganti biodata.php sesuai halaman yang akan dituju
                     echo "<script>alert('Data berhasil ditambah.');window.location='biodata.php';</script>";
                 }
             } else {
@@ -78,7 +78,7 @@ function tambah($koneksi)
                         <div class="card-body">
                             <h4 class="card-title">Form Data Biodata</h4>
                             <p class="card-description"> Masukkan Biodata </p>
-                            <form class="forms-sample" action="" method="POST">
+                            <form class="forms-sample" action="" method="POST" enctype="multipart/form-data">
 
                                 <div class="form-group">
                                     <label for="exampleInputName1">Nama</label>
@@ -110,13 +110,7 @@ function tambah($koneksi)
 
                                 <div class="form-group">
                                     <label>Upload Foto</label>
-                                    <input type="file" name="foto" class="file-upload-default">
-                                    <div class="input-group col-xs-6">
-                                        <input type="text" class="form-control file-upload-info">
-                                        <span class="input-group-append">
-                                            <button class="file-upload-browse btn btn-info" type="button">Upload</button>
-                                        </span>
-                                    </div>
+                                    <input type="file" name="foto">
                                 </div>
 
                                 <button type="submit" class="btn btn-success mr-2" name="input_biodata">Submit</button>
@@ -172,17 +166,17 @@ function tambah($koneksi)
                                         while ($data = mysqli_fetch_assoc($query_tampil)) {
                                         ?>
                                             <tr>
-                                                <th><?php echo $no; ?></th>
-                                                <td><?php echo $data['nama'];  ?></td>
-                                                <td><?php echo $data['tanggal_lahir']; ?></td>
-                                                <td><?php echo $data['tempat_lahir']; ?></td>
-                                                <td><?php echo $data['jenis_kelamin']; ?></td>
-                                                <td><?php echo $data['alamat']; ?></td>
-                                                <td><img src="gambar/<?php echo $data['foto']; ?>"></t>
+                                                <th><?= $no; ?></th>
+                                                <td><?= $data['nama'];  ?></td>
+                                                <td><?= $data['tanggal_lahir']; ?></td>
+                                                <td><?= $data['tempat_lahir']; ?></td>
+                                                <td><?= $data['jenis_kelamin']; ?></td>
+                                                <td><?= $data['alamat']; ?></td>
+                                                <td><img src="gambar/<?= $data['foto']; ?>"></t>
                                                 <td>
 
-                                                    <a href="biodata.php?aksi=delete&id=<?php echo $data['id_biodata']; ?>" onclick="return confirm('Apakah anda yakin ingin menghapus ?');" class="btn btn-danger">Hapus</a>
-                                                    <a href="biodata.php?aksi=update&id=<?php echo $data['id_biodata']; ?>&nama=<?php echo $data['nama']; ?>" class="btn btn-primary">Edit</a>
+                                                    <a href="biodata.php?aksi=delete&id=<?= $data['id_biodata']; ?>" onclick="return confirm('Apakah anda yakin ingin menghapus ?');" class="btn btn-danger">Hapus</a>
+                                                    <a href="biodata.php?aksi=update&id=<?= $data['id_biodata']; ?>&nama=<?= $data['nama']; ?>" class="btn btn-primary">Edit</a>
                                                 </td>
                                             </tr>
                                         <?php
@@ -238,10 +232,10 @@ function tambah($koneksi)
                                             <h4 class="card-title">Form Data Kategori</h4>
                                             <p class="card-description"> Masukkan Kategori </p>
                                             <form class="forms-sample" action="" method="POST">
-                                                <input type="hidden" name="id_kategori" value="<?php echo $_GET['id'] ?>">
+                                                <input type="hidden" name="id_kategori" value="<?= $_GET['id'] ?>">
                                                 <div class="form-group">
                                                     <label for="exampleInputName1">Nama Kategori</label>
-                                                    <input type="text" class="form-control" id="exampleInputName1" placeholder="Nama Kategori" name="nama_kategori" value="<?php echo $_GET['nama_kategori'] ?>" required>
+                                                    <input type="text" class="form-control" id="exampleInputName1" placeholder="Nama Kategori" name="nama_kategori" value="<?= $_GET['nama_kategori'] ?>" required>
                                                 </div>
 
                                                 <button type="submit" class="btn btn-success mr-2" name="update_kategori">Submit</button>
