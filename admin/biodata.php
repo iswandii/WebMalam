@@ -7,6 +7,7 @@ function tambah($koneksi)
 {
     if (isset($_POST['input_biodata'])) {
         $id = uniqid();
+        $id_user = $_POST['id_user'];
         $nama = $_POST['nama'];
         $tgl_lahir = $_POST['tgl_lahir'];
         $tmp_lahir = $_POST['tmp_lahir'];
@@ -16,20 +17,23 @@ function tambah($koneksi)
 
         //cek dulu jika ada gambar produk jalankan coding ini
         if (move_uploaded_file($_FILES['foto']['tmp_name'], 'gambar/' . $_FILES['foto']['name'])) {
-            echo "Gambar berhasil di upload";
+            echo "Gambar berhasil di upload ";
         } else {
-            echo "Gambar  gagal di upload";
-        } {
-            $query_input = mysqli_query($koneksi, "INSERT INTO biodata (id_biodata,nama, tanggal_lahir, tempat_lahir, jenis_kelamin, alamat, foto) VALUES (md5('$id'),'$nama','$tgl_lahir','$tmp_lahir','$jk','$alamat','$foto')");
-            // periska query apakah ada error
-            if (!$query_input) {
-                die("Query gagal dijalankan: " . mysqli_errno($koneksi) .
-                    " - " . mysqli_error($koneksi));
-            } else {
-                //tampil alert dan akan redirect ke halaman biodata.php
-                echo "<script>alert('Data berhasil ditambah.');window.location='biodata.php';</script>";
-            }
+            echo "Gambar  gagal di upload ";
         }
+
+        // $query_input = mysqli_query($koneksi, "INSERT INTO biodata (id_biodata,nama, tanggal_lahir, tempat_lahir, jenis_kelamin, alamat, foto) VALUES (md5('$id'),'$nama','$tgl_lahir','$tmp_lahir','$jk','$alamat','$foto')");
+
+        $query_input = mysqli_query($koneksi, "INSERT INTO biodata VALUES (md5('$id'),$nama,$tgl_lahir,$tmp_lahir,$jk,$alamat,$foto,$id_user)");
+        // periska query apakah ada error
+        if (!$query_input) {
+            die("Query gagal dijalankan: " . mysqli_errno($koneksi) .
+                " - " . mysqli_error($koneksi));
+        } else {
+            //tampil alert dan akan redirect ke halaman biodata.php
+            echo "<script>alert('Data berhasil ditambah.');window.location='biodata.php';</script>";
+        }
+
 
         //     if (!empty($nama) && !empty($tgl_lahir) && !empty($tmp_lahir) && !empty($jk) && !empty($alamat) || !empty($foto)) {
         //         $query_input = mysqli_query($koneksi, "INSERT INTO biodata VALUES ( md5('$id'),'$nama','$tgl_lahir','$tmp_lahir','$jk','$alamat','$foto' )");
@@ -60,6 +64,15 @@ function tambah($koneksi)
                             <form class="forms-sample" action="" method="POST" enctype="multipart/form-data">
 
                                 <div class="form-group">
+                                    <label for="exampleFormControlSelect2">Pilih User</label>
+                                    <select class="form-control" id="exampleFormControlSelect2" name="id_user">
+                                        <option value="admin">Admin</option>
+                                        <option value="operator">Operator</option>
+                                        <option value="autor">Autor</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
                                     <label for="exampleInputName1">Nama</label>
                                     <input type="text" class="form-control" id="exampleInputName1" placeholder="Nama" name="nama" required>
                                 </div>
@@ -75,11 +88,16 @@ function tambah($koneksi)
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="exampleFormControlSelect2">Pilih Jenis Kelamin</label>
-                                    <select class="form-control" id="exampleFormControlSelect2" name="jk">
-                                        <option value="Laki-Laki">Laki - Laki</option>
-                                        <option value="Perempuan">Perempuan</option>
-                                    </select>
+                                    <label for="exampleInputName1">Jenis Kelamin</label>
+                                    <div class="form-radio">
+                                        <label class="form-check-label">
+                                            <input type="radio" class="form-check-input" name="jk" id="optionsRadios1" value="Laki-Laki"> Laki - Laki
+                                        </label>
+                                    </div>
+                                    <div class="form-radio">
+                                        <label class="form-check-label">
+                                            <input type="radio" class="form-check-input" name="jk" id="optionsRadios2" value="Perempuan"> Perempuan
+                                    </div>
                                 </div>
 
                                 <div class="form-group">
@@ -107,7 +125,7 @@ function tambah($koneksi)
         //--- FUngsi Baca Data (Read)
         function tampil_data($koneksi)
         {
-            $query_tampil = mysqli_query($koneksi, "SELECT * FROM biodata");
+            $query_tampil = mysqli_query($koneksi, "SELECT * FROM biodata b LEFT JOIN user u USING(id_user) ");
             if (!$query_tampil) {
                 die("Query Error" . mysqli_errno($koneksi) . "-" . mysqli_error($koneksi));
             }
@@ -128,6 +146,7 @@ function tambah($koneksi)
                                             <th>Jenis Kelamin</th>
                                             <th>Alamat</th>
                                             <th>Foto</th>
+                                            <th>User</th>
                                             <th>Opsi</th>
                                         </tr>
                                     </thead>
@@ -151,11 +170,12 @@ function tambah($koneksi)
                                                 <td><?= $data['tempat_lahir']; ?></td>
                                                 <td><?= $data['jenis_kelamin']; ?></td>
                                                 <td><?= $data['alamat']; ?></td>
-                                                <td><img src="gambar/<?= $data['foto']; ?>"></t>
+                                                <td><img src="gambar/<?= $data['foto']; ?>"></td>
+                                                <td><?= $data['id_user']; ?></td>
                                                 <td>
 
                                                     <a href="biodata.php?aksi=delete&id=<?= $data['id_biodata']; ?>" onclick="return confirm('Apakah anda yakin ingin menghapus ?');" class="btn btn-danger">Hapus</a>
-                                                    <a href="biodata.php?aksi=update&id=<?= $data['id_biodata']; ?>&nama=<?= $data['nama']; ?>" class="btn btn-primary">Edit</a>
+                                                    <a href="biodata.php?aksi=update&id=<?= $data['id_biodata']; ?>&nama=<?= $data['nama']; ?>&tgl_lahir=<?= $data['tanggal_lahir']; ?>&tmp_lahir=<?= $data['tempat_lahir']; ?>&jk=<?= $data['jenis_kelamin']; ?>&alamat=<?= $data['alamat']; ?>&foto=<?= $data['foto']; ?>" class="btn btn-primary">Edit</a>
                                                 </td>
                                             </tr>
                                         <?php
@@ -181,19 +201,28 @@ function tambah($koneksi)
 
                 if (isset($_POST['update_biodata'])) {
                     $id = $_POST['id_biodata'];
-                    $nama_kategori = $_POST['nama'];
+                    $nama = $_POST['nama'];
+                    $tgl_lahir = $_POST['tgl_lahir'];
+                    $tmp_lahir = $_POST['tmp_lahir'];
+                    $jk = $_POST['jk'];
+                    $alamat = $_POST['alamat'];
+                    $foto = $_FILES['foto']['name'];
 
-                    if (!empty($nama_kategori)) {
-                        $query_update = mysqli_query($koneksi, "UPDATE kategori SET nama_kategori='$nama_kategori' WHERE id_kategori='$id'");
-                        if ($query_update && isset($_GET['aksi'])) {
-                            if ($_GET['aksi'] == 'update') {
-                                echo '<script>alert("Data berhasil di update");
-                                window.location.href="kategori.php";
-                                </script>';
-                            } else {
-                                echo '<script>alert("Data gagal di update")</script>';
-                            }
-                        }
+                    //cek dulu jika ada gambar produk jalankan coding ini
+                    if (move_uploaded_file($_FILES['foto']['tmp_name'], 'gambar/' . $_FILES['foto']['name'])) {
+                        echo "Gambar berhasil di upload";
+                    } else {
+                        echo "Gambar  gagal di upload";
+                    }
+                    $query_update = mysqli_query($koneksi, "UPDATE biodata SET nama='$nama', tanggal_lahir='$tgl_lahir', tempat_lahir='$tmp_lahir', jenis_kelamin='$jk', alamat='$alamat', foto='$foto' WHERE id_biodata='$id' ");
+
+                    // periska query apakah ada error
+                    if (!$query_update) {
+                        die("Query gagal dijalankan: " . mysqli_errno($koneksi) .
+                            " - " . mysqli_error($koneksi));
+                    } else {
+                        //tampil alert dan akan redirect ke halaman biodata.php
+                        echo "<script>alert('Data berhasil ditambah.');window.location='biodata.php';</script>";
                     }
                 }
 
@@ -208,16 +237,49 @@ function tambah($koneksi)
                                 <div class="col-md-12 grid-margin stretch-card">
                                     <div class="card">
                                         <div class="card-body">
-                                            <h4 class="card-title">Form Data Kategori</h4>
-                                            <p class="card-description"> Masukkan Kategori </p>
-                                            <form class="forms-sample" action="" method="POST">
-                                                <input type="hidden" name="id_kategori" value="<?= $_GET['id'] ?>">
+                                            <h4 class="card-title">Form Data Biodata</h4>
+                                            <p class="card-description"> Masukkan Biodata User </p>
+                                            <form class="forms-sample" action="" method="POST" enctype="multipart/form-data">
+                                                <input type="hidden" name="id_biodata" value="<?= $_GET['id'] ?>">
                                                 <div class="form-group">
-                                                    <label for="exampleInputName1">Nama Kategori</label>
-                                                    <input type="text" class="form-control" id="exampleInputName1" placeholder="Nama Kategori" name="nama_kategori" value="<?= $_GET['nama_kategori'] ?>" required>
+                                                    <label for="exampleInputName1">Nama</label>
+                                                    <input type="text" class="form-control" id="exampleInputName1" placeholder="Nama" name="nama" value="<?= $_GET['nama']; ?>" required>
                                                 </div>
 
-                                                <button type="submit" class="btn btn-success mr-2" name="update_kategori">Submit</button>
+                                                <div class="form-group">
+                                                    <label for="exampleInputName1">Tanggal Lahir</label>
+                                                    <input type="date" class="form-control" id="exampleInputName1" name="tgl_lahir" value="<?= $_GET['tgl_lahir']; ?>" required>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label for="exampleInputName1">Tempat Lahir</label>
+                                                    <input type="text" class="form-control" id="exampleInputName1" placeholder="Tempat Lahir" name="tmp_lahir" value="<?php echo $_GET['tmp_lahir']; ?>" required>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label for="exampleInputName1">Jenis Kelamin</label>
+                                                    <div class="form-radio">
+                                                        <label class="form-check-label">
+                                                            <input type="radio" class="form-check-input" name="jk" id="optionsRadios1" value="Laki-Laki"> Laki - Laki
+                                                        </label>
+                                                    </div>
+                                                    <div class="form-radio">
+                                                        <label class="form-check-label">
+                                                            <input type="radio" class="form-check-input" name="jk" id="optionsRadios2" value="Perempuan"> Perempuan
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label for="exampleInputName1">Alamat</label>
+                                                    <input type="text" class="form-control" id="exampleInputName1" placeholder="Alamat" name="alamat" value="<?= $_GET['alamat']; ?>" required>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label>Upload Foto</label>
+                                                    <input type="file" name="foto" value="<?= $_GET['foto']; ?>">
+                                                </div>
+
+                                                <button type="submit" class="btn btn-success mr-2" name="update_biodata">Submit</button>
                                                 <button class="btn btn-light" type="reset">Reset</button>
                                             </form>
                                         </div>
@@ -236,12 +298,12 @@ function tambah($koneksi)
                             if (isset($_GET['id']) && isset($_GET['aksi'])) {
                                 $id = $_GET['id'];
 
-                                $query_hapus = mysqli_query($koneksi, "DELETE FROM kategori WHERE id_kategori='$id'");
+                                $query_hapus = mysqli_query($koneksi, "DELETE FROM biodata WHERE id_biodata='$id'");
 
                                 if ($query_hapus) {
                                     if ($_GET['aksi'] == 'delete') {
                                         echo '<script>alert("Data berhasil dihapus");
-                                        window.location.href="kategori.php";</script>';
+                                        window.location.href="biodata.php";</script>';
                                     }
                                 }
                             }

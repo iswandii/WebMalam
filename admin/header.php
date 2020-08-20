@@ -1,8 +1,15 @@
 <?php
 session_start();
-include 'proses/koneksi.php';
+require 'proses/functions.php';
+?>
+
+<?php
+if ($_SESSION['level'] != ("admin" || "operator" || "autor" || empty($_SESSION['level']))) {
+    header('location:login.php');
+}
 
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
