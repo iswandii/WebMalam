@@ -42,3 +42,11 @@ function tambah_user($data)
 
     return mysqli_affected_rows($koneksi);
 }
+
+function hapus_user($id)
+{
+    global $koneksi;
+    mysqli_query($koneksi, "DELETE FROM user WHERE id_user='$id'");
+
+    return mysqli_affected_rows($koneksi);
+}
