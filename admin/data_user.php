@@ -79,7 +79,7 @@
                       <td><?php echo $data['no_hp']; ?></td>
                       <td><?php echo $data['level']; ?></td>
                       <td>
-                        <a href="proses/proses_hapus.php?id=<?php echo $data['id_user']; ?>" onclick="return confirm('Apakah anda yakin ingin menghapus ?');" class="btn btn-danger">Hapus</a>
+                        <a href="proses/proses_hapus_user.php?id=<?php echo $data['id_user']; ?>" onclick="return confirm('Apakah anda yakin ingin menghapus ?');" class="btn btn-danger">Hapus</a>
                         <a href="proses/proses_view.php?id=<?php echo $data['id_user']; ?>" class="btn btn-success">View</a>
                         <a href="edit_user.php?id=<?php echo $data['id_user']; ?>" class="btn btn-primary">Edit</a>
                       </td>
