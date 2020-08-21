@@ -15,6 +15,7 @@
             if ($data['level'] == 'admin') {
                 $_SESSION['username'] = $data['username'];
                 $_SESSION['level'] = $data['level'];
+                $_SESSION['id_user'] = $data['id_user'];
 
                 echo "<script>alert('Selamat datang Admin')
             window.location.href='../index.php';
@@ -23,6 +24,7 @@
             } else if ($data['level'] == 'operator') {
                 $_SESSION['username'] = $data['username'];
                 $_SESSION['level'] = $data['level'];
+                $_SESSION['id_user'] = $data['id_user'];
 
                 echo "<script>alert('Selamat datang Operator')
         window.location.href='../index.php';
@@ -30,6 +32,7 @@
             } else if ($data['level'] == 'autor') {
                 $_SESSION['username'] = $data['username'];
                 $_SESSION['level'] = $data['level'];
+                $_SESSION['id_user'] = $data['id_user'];
 
                 echo "<script>alert('Selamat datang Autor')
         window.location.href='../index.php';

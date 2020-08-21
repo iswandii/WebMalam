@@ -27,6 +27,13 @@ if ($_SESSION['level'] != ("admin" || "operator" || "autor" || empty($_SESSION['
     <!-- End plugin css for this page -->
     <!-- inject:css -->
     <link rel="stylesheet" href="css/style.css">
+    <!-- summernote -->
+
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="vendors/summernote-0.8.18-dist/summernote.css">
+    <link rel="stylesheet" href="vendors/summernote-0.8.18-dist/summernote-bs4.min.css">
+
     <!-- endinject -->
     <link rel="shortcut icon" href="images/favicon.png">
     <!-- datatables -->

@@ -5,10 +5,14 @@
 <!-- container-scroller -->
 <!-- plugins:js -->
 
+
 <script src="../js/jquery.js"></script>
 <script src="vendors/js/vendor.bundle.base.js"></script>
 <script src="vendors/js/vendor.bundle.addons.js"></script>
-
+<script src="vendors/summernote-0.8.18-dist/umd/popper.min.js"></script>
+<script src="vendors/summernote-0.8.18-dist/summernote-bs4.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="vendors/summernote-0.8.18-dist/lang/summernote-id-ID.js"></script>
 <!-- datatables -->
 <script>
     $(document).ready(function() {
@@ -28,6 +32,27 @@
             .appendTo('#example_wrapper .col-md-6:eq(0)');
     });
 </script>
+<script>
+    $('#content').summernote({
+        placeholder: 'Isi Konten',
+        tabsize: 2,
+        height: 120,
+        lang: 'id-ID',
+        toolbar: [
+            ['style', ['style']],
+            ['font', ['bold', 'underline', 'clear']],
+            ['color', ['color']],
+            ['para', ['ul', 'ol', 'paragraph']],
+            ['table', ['table']],
+            ['insert', ['link', 'picture', 'video']],
+            ['view', ['fullscreen', 'codeview', 'help']]
+        ]
+    });
+</script>
+
+
+
+
 <script type="text/javascript" src="vendors/datatables/js/jquery.js"></script>
 <script src="vendors/DataTabless/DataTables-1.10.21/js/jquery.dataTables.min.js"></script>
 <script src="vendors/DataTabless/DataTables-1.10.21/js/dataTables.bootstrap4.min.js"></script>
