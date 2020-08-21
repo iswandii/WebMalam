@@ -9,6 +9,7 @@
           <div class="card-body">
             <h4 class="card-title">Form Data User</h4>
             <p class="card-description"> Masukkan Data User </p>
+
             <form class="forms-sample" action="proses/input_user.php" method="POST">
 
               <div class="form-group">
@@ -73,15 +74,15 @@
                   $no = 1;
                   foreach ($user as $data) : ?>
                     <tr>
-                      <th><?php echo $no; ?></th>
-                      <td><?php echo $data['username'];  ?></td>
-                      <td><?php echo $data['email']; ?></td>
-                      <td><?php echo $data['no_hp']; ?></td>
-                      <td><?php echo $data['level']; ?></td>
+                      <th><?= $no; ?></th>
+                      <td><?= $data['username'];  ?></td>
+                      <td><?= $data['email']; ?></td>
+                      <td><?= $data['no_hp']; ?></td>
+                      <td><?= $data['level']; ?></td>
                       <td>
-                        <a href="proses/proses_hapus_user.php?id=<?php echo $data['id_user']; ?>" onclick="return confirm('Apakah anda yakin ingin menghapus ?');" class="btn btn-danger">Hapus</a>
-                        <a href="proses/proses_view.php?id=<?php echo $data['id_user']; ?>" class="btn btn-success">View</a>
-                        <a href="edit_user.php?id=<?php echo $data['id_user']; ?>" class="btn btn-primary">Edit</a>
+                        <a href="proses/proses_hapus_user.php?id=<?= $data['id_user']; ?>" onclick="return confirm('Apakah anda yakin ingin menghapus ?');" class="btn btn-danger">Hapus</a>
+                        <a href="proses/proses_view.php?id=<?= $data['id_user']; ?>" class="btn btn-success">View</a>
+                        <a href="edit_user.php?id=<?= $data['id_user']; ?>" class="btn btn-primary">Edit</a>
                       </td>
                     </tr>
 

@@ -34,9 +34,15 @@ function tambah_user($data)
     $no_hp = htmlspecialchars($data['no_hp']);
     $level =  htmlspecialchars($data['level']);
 
-    $query = "INSERT INTO user
-                VALUES 
-            (md5('$id'),'$username','$email',md5('$password'),'$no_hp','','$level')";
+    $query = "INSERT INTO user VALUES 
+                    (md5('$id'),
+                    '$username',
+                    '$email',
+                    md5('$password'),
+                    '$no_hp',
+                    '',
+                    '$level'
+                    ";
 
     mysqli_query($koneksi, $query);
 
@@ -47,6 +53,31 @@ function hapus_user($id)
 {
     global $koneksi;
     mysqli_query($koneksi, "DELETE FROM user WHERE id_user='$id'");
+
+    return mysqli_affected_rows($koneksi);
+}
+
+function ubah_user($data)
+{
+    global $koneksi;
+
+    $id = $data['id_user'];
+    $username = htmlspecialchars($data['username']);
+    $password = htmlspecialchars($data['password']);
+    $email = htmlspecialchars($data['email']);
+    $no_hp = htmlspecialchars($data['no_hp']);
+    $level =  htmlspecialchars($data['level']);
+
+    $query = "UPDATE user SET
+                username='$username',
+                email='$email',
+                password=md5('$password'),
+                no_hp='$no_hp',
+                level='$level'
+                WHERE id_user='$id'
+                ";
+
+    mysqli_query($koneksi, $query);
 
     return mysqli_affected_rows($koneksi);
 }

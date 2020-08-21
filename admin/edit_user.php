@@ -12,44 +12,39 @@
 
                         <?php
 
+                        // ambil data di URL 
                         $id = $_GET['id'];
 
-                        $query_show = mysqli_query($koneksi, "SELECT * FROM user WHERE id_user='$id'");
-
-                        if (mysqli_num_rows($query_show) == 0) {
-                            echo '<script>window.history.back()</script>';
-                        } else {
-                            $data = mysqli_fetch_assoc($query_show);
-                        }
-
+                        // query data user berdasarkan id
+                        $user = query("SELECT * FROM user WHERE id_user='$id'")[0];
                         ?>
 
-                        <form class="forms-sample" action="proses/proses_edit.php" method="POST">
-                            <input type="hidden" name="id_user" value="<?php echo $data['id_user'] ?>">
+                        <form class="forms-sample" action="proses/proses_edit_user.php" method="POST">
+                            <input type="hidden" name="id_user" value="<?= $user['id_user'] ?>">
 
                             <div class="form-group">
                                 <label for="exampleInputName1">Username</label>
-                                <input type="text" class="form-control" id="exampleInputName1" placeholder="Username" name="username" value="<?php echo $data['username'] ?>" required>
+                                <input type="text" class="form-control" id="exampleInputName1" placeholder="Username" name="username" value="<?= $user['username'] ?>" required>
                             </div>
 
                             <div class="form-group">
                                 <label for="exampleInputName1">Password</label>
-                                <input type="password" class="form-control" id="exampleInputName1" placeholder="Password" name="password" value="<?php echo $data['password'] ?>" required>
+                                <input type="password" class="form-control" id="exampleInputName1" placeholder="Password" name="password" value="<?= $user['password'] ?>" required>
                             </div>
 
                             <div class="form-group">
                                 <label for="exampleInputName1">Email</label>
-                                <input type="email" class="form-control" id="exampleInputName1" placeholder="Email" name="email" value="<?php echo $data['email'] ?>" required>
+                                <input type="email" class="form-control" id="exampleInputName1" placeholder="Email" name="email" value="<?= $user['email'] ?>" required>
                             </div>
 
                             <div class=" form-group">
                                 <label for="exampleInputName1">No HP</label>
-                                <input type="text" class="form-control" id="exampleInputName1" placeholder="No Hp" name="no_hp" value="<?php echo $data['no_hp'] ?>" required>
+                                <input type="text" class="form-control" id="exampleInputName1" placeholder="No Hp" name="no_hp" value="<?= $user['no_hp'] ?>" required>
                             </div>
 
                             <div class=" form-group">
                                 <label for="exampleFormControlSelect2">Pilih User</label>
-                                <?php if (empty($data['level'])) { ?>
+                                <?php if (empty($user['level'])) { ?>
                                     <select class="form-control" id="exampleFormControlSelect2" name="level">
                                         <option value="admin">Admin</option>
                                         <option value="operator">Operator</option>
@@ -57,9 +52,9 @@
                                     </select>
                                 <?php } else { ?>
                                     <select class="form-control" id="exampleFormControlSelect2" name="level">
-                                        <option <?php echo ($data['level'] == 'admin') ? 'selected' : '' ?> value="admin">Admin</option>
-                                        <option <?php echo ($data['level'] == 'operator') ? 'selected' : '' ?> value="operator">Operator</option>
-                                        <option <?php echo ($data['level'] == 'autor') ? 'selected' : '' ?> value="autor">Autor</option>
+                                        <option <?= ($user['level'] == 'admin') ? 'selected' : '' ?> value="admin">Admin</option>
+                                        <option <?= ($user['level'] == 'operator') ? 'selected' : '' ?> value="operator">Operator</option>
+                                        <option <?= ($user['level'] == 'autor') ? 'selected' : '' ?> value="autor">Autor</option>
 
                                     </select>
                                 <?php } ?>
