@@ -24,14 +24,14 @@ function tambah($koneksi)
 
         // $query_input = mysqli_query($koneksi, "INSERT INTO biodata (id_biodata,nama, tanggal_lahir, tempat_lahir, jenis_kelamin, alamat, foto) VALUES (md5('$id'),'$nama','$tgl_lahir','$tmp_lahir','$jk','$alamat','$foto')");
 
-        $query_input = mysqli_query($koneksi, "INSERT INTO biodata VALUES (md5('$id'),'$nama','$tgl_lahir','$tmp_lahir','$jk','$alamat','$foto','$id_user')");
+        $query_input = mysqli_query($koneksi, "INSERT INTO biodata VALUES (md5('$id'),$nama,$tgl_lahir,$tmp_lahir,$jk,$alamat,$foto,$id_user)");
         // periska query apakah ada error
         if (!$query_input) {
             die("Query gagal dijalankan: " . mysqli_errno($koneksi) .
                 " - " . mysqli_error($koneksi));
         } else {
             //tampil alert dan akan redirect ke halaman biodata.php
-            echo "<script>alert('Data berhasil ditambah.');window.location='biodata.php';</script>";
+            echo "<script>alert('Data berhasil ditambah.');window.location='biodata_user.php';</script>";
         }
 
 
@@ -59,9 +59,25 @@ function tambah($koneksi)
                 <div class="col-md-12 grid-margin stretch-card">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="card-title">Form Data User</h4>
-                            <p class="card-description"> Masukkan Data User </p>
+                            <h4 class="card-title">Form Data Biodata</h4>
+                            <p class="card-description"> Masukkan Biodata </p>
                             <form class="forms-sample" action="" method="POST" enctype="multipart/form-data">
+
+                                <div class="form-group">
+                                    <label for="exampleFormControlSelect1">Pilih User</label>
+                                    <select class="form-control form-control-lg" id="exampleFormControlSelect1" name="id_user">
+                                        <?php
+
+                                        $show = mysqli_query($koneksi, "SELECT * FROM user");
+
+                                        while ($data = mysqli_fetch_array($show)) {
+
+                                        ?>
+                                            <option value="<?= $data['id_user'] ?>"><?= $data['username'] . ' - ' . $data['level'] ?></option>
+                                        <?php } ?>
+
+                                    </select>
+                                </div>
 
                                 <div class="form-group">
                                     <label for="exampleInputName1">Nama</label>
@@ -116,8 +132,7 @@ function tambah($koneksi)
         //--- FUngsi Baca Data (Read)
         function tampil_data($koneksi)
         {
-            $id_user = $_SESSION['id_user'];
-            $query_tampil = mysqli_query($koneksi, "SELECT * FROM biodata WHERE id_user='$id_user' ");
+            $query_tampil = mysqli_query($koneksi, "SELECT * FROM biodata b LEFT JOIN user u USING(id_user) ");
             if (!$query_tampil) {
                 die("Query Error" . mysqli_errno($koneksi) . "-" . mysqli_error($koneksi));
             }
@@ -126,7 +141,7 @@ function tambah($koneksi)
                 <div class="col-lg-12 grid-margin stretch-card">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="card-title">Tabel Biodata</h4>
+                            <h4 class="card-title">Tabel Data User</h4>
                             <div class="table-responsive">
                                 <table class="table table-striped table-bordered data" id="example">
                                     <thead>
@@ -164,8 +179,8 @@ function tambah($koneksi)
                                                 <td><img src="gambar/<?= $data['foto']; ?>"></td>
                                                 <td>
 
-                                                    <a href="biodata.php?aksi=delete&id=<?= $data['id_biodata']; ?>" onclick="return confirm('Apakah anda yakin ingin menghapus ?');" class="btn btn-danger">Hapus</a>
-                                                    <a href="biodata.php?aksi=update&id=<?= $data['id_biodata']; ?>&nama=<?= $data['nama']; ?>&tgl_lahir=<?= $data['tanggal_lahir']; ?>&tmp_lahir=<?= $data['tempat_lahir']; ?>&jk=<?= $data['jenis_kelamin']; ?>&alamat=<?= $data['alamat']; ?>&foto=<?= $data['foto']; ?>" class="btn btn-primary">Edit</a>
+                                                    <a href="biodata_user.php?aksi=delete&id=<?= $data['id_biodata']; ?>" onclick="return confirm('Apakah anda yakin ingin menghapus ?');" class="btn btn-danger">Hapus</a>
+                                                    <a href="biodata_user.php?aksi=update&id=<?= $data['id_biodata']; ?>&nama=<?= $data['nama']; ?>&tgl_lahir=<?= $data['tanggal_lahir']; ?>&tmp_lahir=<?= $data['tempat_lahir']; ?>&jk=<?= $data['jenis_kelamin']; ?>&alamat=<?= $data['alamat']; ?>&foto=<?= $data['foto']; ?>" class="btn btn-primary">Edit</a>
                                                 </td>
                                             </tr>
                                         <?php
@@ -191,6 +206,7 @@ function tambah($koneksi)
 
                 if (isset($_POST['update_biodata'])) {
                     $id = $_POST['id_biodata'];
+                    $id_user = $_POST['id_user'];
                     $nama = $_POST['nama'];
                     $tgl_lahir = $_POST['tgl_lahir'];
                     $tmp_lahir = $_POST['tmp_lahir'];
@@ -212,7 +228,7 @@ function tambah($koneksi)
                             " - " . mysqli_error($koneksi));
                     } else {
                         //tampil alert dan akan redirect ke halaman biodata.php
-                        echo "<script>alert('Data berhasil ditambah.');window.location='biodata.php';</script>";
+                        echo "<script>alert('Data berhasil ditambah.');window.location='biodata_user.php';</script>";
                     }
                 }
 

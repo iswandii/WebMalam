@@ -1,19 +1,4 @@
-<?php include 'header.php';
-if (isset($_POST['edit_postingan'])) {
-
-    if (ubah_postingan($_POST) > 0) {
-        echo '<script>alert ("data postingan berhasil di update")
-    window.location.href="postingan.php";
-    </script>';
-    } else {
-        echo '<script>alert ("data postingan gagal di update")
-    window.location.href="edit_postingan.php";
-    </script>';
-        var_dump($_POST);
-        die;
-    }
-}
-?>
+<?php include 'header.php' ?>
 
 <!-- partial -->
 <div class="main-panel">
@@ -36,7 +21,7 @@ if (isset($_POST['edit_postingan'])) {
                         ?>
 
 
-                        <form class="forms-sample" action="" method="POST" enctype="multipart/form-data">
+                        <form class="forms-sample" action="proses/edit_postingan.php" method="POST" enctype="multipart/form-data">
                             <input type="hidden" name="id_postingan" value="<?= $user['id_postingan']; ?>">
                             <input type="hidden" name="fotoLama" value="<?= $user['foto']; ?>">
 

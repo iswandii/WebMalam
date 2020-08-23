@@ -13,7 +13,7 @@
     <!-- Header Section -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
-            <a class="navbar-brand" href="#">Navbar</a>
+            <a class="navbar-brand" href="#">News</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -41,6 +41,26 @@
             </div>
         </div>
     </nav>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="hero-post"><img src="image/1.png" alt="" class="img-fluid">
+                        <div class="hero-post-content">
+                            <div class="row">
+                                <div class="col-md-3"><img src="image/1.png" alt="" class="img-fluid"></div>
+                                <div class="col-md-9">
+                                    <h2>My Website</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- <a class="fixed-whatsapp" href="https://api.whatsapp.com/send?phone=+6285314371327 & text=Hallo.. saya ingin apa ya ?" rel="nofollow noopener" target="_blank" title="whatsapp" style="z-index: 999;"></a> -->
 
