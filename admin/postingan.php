@@ -1,4 +1,5 @@
-<?php include 'header.php' ?>
+<?php include 'header.php'
+?>
 <!-- partial -->
 <div class="main-panel">
     <div class="content-wrapper">
@@ -20,6 +21,21 @@
                             <div class="form-group">
                                 <label for="exampleInputName1">Tanggal Release</label>
                                 <input type="date" class="form-control" id="exampleInputName1" name="tgl_rilis" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exampleFormControlSelect1">Pilih Kategori</label>
+                                <select class="form-control form-control-lg" id="exampleFormControlSelect1" name="id_kategori">
+                                    <?php
+
+                                    $show = query("SELECT * FROM kategori k LEFT JOIN postingan p USING(id_kategori)");
+
+                                    foreach ($show as $data) : ?>
+
+                                        <option value="<?= $data['id_kategori'] ?>"><?= $data['nama_kategori'] ?></option>
+                                    <?php endforeach; ?>
+
+                                </select>
                             </div>
 
                             <div class="form-group">
@@ -51,7 +67,6 @@
                                         <th>Judul</th>
                                         <th>Tanggal Release</th>
                                         <th>Foto Utama</th>
-                                        <th>Konten</th>
                                         <th>Opsi</th>
                                     </tr>
                                 </thead>
@@ -67,8 +82,7 @@
                                             <th><?= $no; ?></th>
                                             <td><?= $data['judul'];  ?></td>
                                             <td><?= $data['tgl_rilis']; ?></td>
-                                            <td><img src="gambar/<?= $data['foto']; ?>"></td>
-                                            <td><?= $data['konten']; ?></td>
+                                            <td><img src="gambar/postingan<?= $data['foto']; ?>"></td>
                                             <td>
                                                 <a href="proses/hapus_postingan.php?id=<?= $data['id_postingan']; ?>" onclick="return confirm('Apakah anda yakin ingin menghapus ?');" class="btn btn-danger">Hapus</a>
                                                 <a href="edit_postingan.php?id=<?= $data['id_postingan']; ?>" class="btn btn-primary">Edit</a>

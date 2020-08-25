@@ -249,7 +249,7 @@ if ($_SESSION['level'] != ("admin" || "operator" || "autor" || empty($_SESSION['
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="posting.php">
+                            <a class="nav-link" href="postingan.php">
                                 <i class="menu-icon mdi mdi-television"></i>
                                 <span class="menu-title">Postingan</span>
                             </a>
