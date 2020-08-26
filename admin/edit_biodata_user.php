@@ -6,16 +6,16 @@ $id = $_GET['id'];
 $bd = query("SELECT * FROM biodata WHERE id_biodata='$id'")[0];
 // var_dump($bd);
 // die;
-if (isset($_POST['edit_postingan'])) {
+if (isset($_POST['update_biodata'])) {
 
-    if (ubah_postingan($_POST) > 0) {
+    if (ubahBiodataUser($_POST) > 0) {
         echo '<script>alert ("data postingan berhasil di update")
-    window.location.href="postingan.php";
+    window.location.href="biodata_user.php";
     </script>';
     } else {
         echo '<script>alert ("data postingan gagal di update")
-    window.location.href="edit_postingan.php";
-    </script>';
+        window.location.href="edit_biodata_user.php";
+        </script>';
     }
 }
 
@@ -32,8 +32,8 @@ if (isset($_POST['edit_postingan'])) {
                         <h4 class="card-title">Form Data Biodata</h4>
                         <p class="card-description"> Masukkan Biodata User </p>
                         <form class="forms-sample" action="" method="POST" enctype="multipart/form-data">
-                            <input type="hidden" name="id_biodata" value="<?= $data['id'] ?>">
-                            <input type="hidden" name="fotoLama" value="<?= $data['foto'] ?>">
+                            <input type="hidden" name="id_biodata" value="<?= $bd['id_biodata'] ?>">
+                            <input type="hidden" name="fotoLama" value="<?= $bd['foto'] ?>">
 
                             <div class="form-group">
                                 <label for="exampleFormControlSelect1">Pilih User</label>
@@ -41,9 +41,8 @@ if (isset($_POST['edit_postingan'])) {
                                     <?php
 
                                     $user = query("SELECT * FROM user");
-                                    $no = 1;
-                                    foreach ($user as $data) : ?>
 
+                                    foreach ($user as $data) : ?>
                                         <option value="<?= $data['id_user'] ?>"><?= $data['username'] . ' - ' . $data['level'] ?></option>
                                     <?php endforeach; ?>
 
@@ -69,12 +68,12 @@ if (isset($_POST['edit_postingan'])) {
                                 <label for="exampleInputName1">Jenis Kelamin</label>
                                 <div class="form-radio">
                                     <label class="form-check-label">
-                                        <input type="radio" class="form-check-input" name="jk" id="optionsRadios1" value="Laki-Laki"> Laki - Laki
+                                        <input type="radio" class="form-check-input" name="jk" id="optionsRadios1" value="<?= !empty($bd['jenis_kelamin'] == "Laki-Laki") ? $bd['jenis_kelamin'] : '' ?>" <?php echo !empty($bd['jenis_kelamin'] == "Laki-Laki") ? 'checked' : '' ?>> Laki - Laki
                                     </label>
                                 </div>
                                 <div class="form-radio">
                                     <label class="form-check-label">
-                                        <input type="radio" class="form-check-input" name="jk" id="optionsRadios2" value="Perempuan"> Perempuan
+                                        <input type="radio" class="form-check-input" name="jk" id="optionsRadios2" value="<?= !empty($bd['jenis_kelamin'] == "Perempuan") ? $bd['jenis_kelamin'] : '' ?>" <?php echo !empty($bd['jenis_kelamin'] == "Perempuan") ? 'checked' : '' ?>> Perempuan
                                 </div>
                             </div>
 
@@ -85,7 +84,7 @@ if (isset($_POST['edit_postingan'])) {
 
                             <div class="form-group">
                                 <label>Upload Foto</label>
-                                <img src="gambar/biodata/<?= $bd['foto']; ?>">
+                                <img src="gambar/biodata/<?= $bd['foto']; ?>" width="100px">
                                 <input type="file" name="foto">
                             </div>
 

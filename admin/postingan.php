@@ -82,7 +82,7 @@
                                             <th><?= $no; ?></th>
                                             <td><?= $data['judul'];  ?></td>
                                             <td><?= $data['tgl_rilis']; ?></td>
-                                            <td><img src="gambar/postingan<?= $data['foto']; ?>"></td>
+                                            <td><img src="gambar/postingan/<?= $data['foto']; ?>"></td>
                                             <td>
                                                 <a href="proses/hapus_postingan.php?id=<?= $data['id_postingan']; ?>" onclick="return confirm('Apakah anda yakin ingin menghapus ?');" class="btn btn-danger">Hapus</a>
                                                 <a href="edit_postingan.php?id=<?= $data['id_postingan']; ?>" class="btn btn-primary">Edit</a>

@@ -37,9 +37,12 @@
                 echo "<script>alert('Selamat datang Autor')
         window.location.href='../index.php';
         </script>";
-            } else {
-                header('location:../login.php');
             }
+        } else {
+
+            echo "<script>alert('Username atau Password anda salah')
+    window.location.href='../login.php';
+    </script>";
         }
     }
     ?>

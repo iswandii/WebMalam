@@ -164,7 +164,7 @@ function upload()
     $namaFileBaru .= '.';
     $namaFileBaru .= $ekstensiGambar;
 
-    move_uploaded_file($tmpName, '../gambar/postingan/' . $namaFileBaru);
+    move_uploaded_file($tmpName, 'gambar/postingan/' . $namaFileBaru);
     return $namaFileBaru;
 }
 
@@ -174,7 +174,7 @@ function hapus_postingan($id)
     $tampil = mysqli_query($koneksi, "SELECT foto FROM postingan WHERE id_postingan='$id'");
     $data = mysqli_fetch_assoc($tampil);
     mysqli_query($koneksi, "DELETE FROM postingan WHERE id_postingan='$id'");
-    unlink('../gambar/postingan/' . $data['foto']);
+    unlink('gambar/postingan/' . $data['foto']);
     // var_dump($data);
     // die;
     return mysqli_affected_rows($koneksi);
@@ -185,7 +185,7 @@ function ubah_postingan($data)
     global $koneksi;
 
     $id = $data['id_postingan'];
-
+    $id_kategori = htmlspecialchars($data['id_kategori']);
     $judul = htmlspecialchars($data['judul']);
     $konten = htmlspecialchars($data['konten']);
     $tgl_rilis = htmlspecialchars($data['tgl_rilis']);
@@ -203,7 +203,8 @@ function ubah_postingan($data)
                 judul='$judul',
                 konten='$konten',
                 tgl_rilis='$tgl_rilis',
-                foto='$foto'
+                foto='$foto',
+                id_kategori='$id_kategori'
                 WHERE id_postingan='$id'
                 ";
 
@@ -290,7 +291,7 @@ function uploadBiodataUser()
     $namaFileBaru .= '.';
     $namaFileBaru .= $ekstensiGambar;
 
-    move_uploaded_file($tmpName, '../gambar/biodata/' . $namaFileBaru);
+    move_uploaded_file($tmpName, 'gambar/biodata/' . $namaFileBaru);
     return $namaFileBaru;
 }
 
@@ -300,7 +301,7 @@ function hapusBiodataUser($id)
     $tampil = mysqli_query($koneksi, "SELECT foto FROM biodata WHERE id_biodata='$id'");
     $data = mysqli_fetch_assoc($tampil);
     mysqli_query($koneksi, "DELETE FROM biodata WHERE id_biodata='$id'");
-    unlink('../gambar/biodata/' . $data['foto']);
+    unlink('gambar/biodata/' . $data['foto']);
     // var_dump($data);
     // die;
     return mysqli_affected_rows($koneksi);
@@ -310,7 +311,7 @@ function ubahBiodataUser($data)
 {
     global $koneksi;
 
-    $id = uniqid();
+    $id = $data['id_biodata'];
     $id_user = $data['id_user'];
     $nama = htmlspecialchars($data['nama']);
     $tgl_lahir = htmlspecialchars($data['tgl_lahir']);
@@ -327,16 +328,190 @@ function ubahBiodataUser($data)
     }
 
     $query = "UPDATE biodata SET
-                id_biodata=$id,
-                nama=$nama,
-                tanggal_lahir=$tgl_lahir,
-                tempat_lahir=$tmp_lahir,
-                jenis_kelamin=$jk,
-                alamat=$alamat,
-                foto=$foto
+                nama='$nama',
+                tanggal_lahir='$tgl_lahir',
+                tempat_lahir='$tmp_lahir',
+                jenis_kelamin='$jk',
+                alamat='$alamat',
+                foto='$foto',
+                id_user='$id_user'
+                WHERE 
+                id_biodata='$id'
     ";
 
     mysqli_query($koneksi, $query);
 
+    return mysqli_affected_rows($koneksi);
+}
+
+
+
+//! BIODATA
+
+function tambahBiodata($data)
+{
+    global $koneksi;
+
+    $id = uniqid();
+    $id_user = $_SESSION['id_user'];
+    $nama = htmlspecialchars($data['nama']);
+    $tgl_lahir = htmlspecialchars($data['tgl_lahir']);
+    $tmp_lahir = htmlspecialchars($data['tmp_lahir']);
+    $jk = htmlspecialchars($data['jk']);
+    $alamat = htmlspecialchars($data['alamat']);
+
+    // upload gambar
+    $foto = uploadBiodataUser();
+    if (!$foto) {
+        return false;
+    }
+
+    $query_input = "INSERT INTO biodata( id_biodata, nama, tanggal_lahir, tempat_lahir, jenis_kelamin, alamat,foto,id_user)
+                        VALUES
+                        (md5('$id'),'$nama','$tgl_lahir','$tmp_lahir','$jk','$alamat','$foto','$id_user')
+                        ";
+
+    mysqli_query($koneksi, $query_input);
+
+    return mysqli_affected_rows($koneksi);
+}
+
+function ubahBiodata($data)
+{
+    global $koneksi;
+
+    $id = $data['id_biodata'];
+    $id_user = $data['id_user'];
+    $nama = htmlspecialchars($data['nama']);
+    $tgl_lahir = htmlspecialchars($data['tgl_lahir']);
+    $tmp_lahir = htmlspecialchars($data['tmp_lahir']);
+    $jk = htmlspecialchars($data['jk']);
+    $alamat = htmlspecialchars($data['alamat']);
+    $fotoLama = htmlspecialchars($data['fotoLama']);
+
+    // cek apakah user pilih gambar baru atau tidak
+    if ($_FILES['foto']['error'] === 4) {
+        $foto = $fotoLama;
+    } else {
+        $foto = uploadBiodataUser();
+    }
+
+    $query = "UPDATE biodata SET
+                nama='$nama',
+                tanggal_lahir='$tgl_lahir',
+                tempat_lahir='$tmp_lahir',
+                jenis_kelamin='$jk',
+                alamat='$alamat',
+                foto='$foto',
+                id_user='$id_user'
+                WHERE 
+                id_biodata='$id'
+    ";
+
+    mysqli_query($koneksi, $query);
+
+    return mysqli_affected_rows($koneksi);
+}
+
+
+function hapusBiodata($id)
+{
+    global $koneksi;
+    $tampil = mysqli_query($koneksi, "SELECT foto FROM biodata WHERE id_biodata='$id'");
+    $data = mysqli_fetch_assoc($tampil);
+    mysqli_query($koneksi, "DELETE FROM biodata WHERE id_biodata='$id'");
+    unlink('../gambar/biodata/' . $data['foto']);
+    // var_dump($data);
+    // die;
+    return mysqli_affected_rows($koneksi);
+}
+
+
+
+
+//! POSTINGAN
+
+
+
+function tambahPostinganAutor($data)
+{
+    global $koneksi;
+    $id_user = $_SESSION['id_user'];
+    $id = uniqid();
+    $judul = htmlspecialchars($data['judul']);
+    $konten = htmlspecialchars($data['konten']);
+    $tgl_rilis = htmlspecialchars($data['tgl_rilis']);
+
+    // upload gambar
+    $foto = upload();
+    if (!$foto) {
+        return false;
+    }
+
+    $query_input = "INSERT INTO postingan( id_postingan, judul, konten, tgl_rilis, foto,id_user)
+                        VALUES
+                        (md5('$id'),'$judul','$konten','$tgl_rilis','$foto','$id_user')
+                        ";
+
+    // $query = "INSERT INTO postingan VALUES 
+    //                 (md5('$id'),
+    //                 '$judul',
+    //                 '$konten',
+    //                 '$tgl_rilis',
+    //                 '$foto',
+    //                 '',
+    //                 ";
+
+    mysqli_query($koneksi, $query_input);
+
+    return mysqli_affected_rows($koneksi);
+}
+
+
+
+function ubahPostinganAutor($data)
+{
+    global $koneksi;
+
+    $id_user = $_SESSION['id_user'];
+    $id = $data['id_postingan'];
+    $judul = htmlspecialchars($data['judul']);
+    $konten = htmlspecialchars($data['konten']);
+    $tgl_rilis = htmlspecialchars($data['tgl_rilis']);
+    $fotoLama = htmlspecialchars($data['fotoLama']);
+
+    // cek apakah user pilih gambar baru atau tidak
+    if ($_FILES['foto']['error'] === 4) {
+        $foto = $fotoLama;
+    } else {
+        $foto = upload();
+    }
+
+
+    $query = "UPDATE postingan SET
+                judul='$judul',
+                konten='$konten',
+                tgl_rilis='$tgl_rilis',
+                foto='$foto',
+                id_user='$id_user',
+                WHERE id_postingan='$id'
+                ";
+
+
+    mysqli_query($koneksi, $query);
+
+    return mysqli_affected_rows($koneksi);
+}
+
+
+function hapusPostinganAutor($id)
+{
+    global $koneksi;
+    $tampil = mysqli_query($koneksi, "SELECT foto FROM postingan WHERE id_postingan='$id'");
+    $data = mysqli_fetch_assoc($tampil);
+    mysqli_query($koneksi, "DELETE FROM postingan WHERE id_postingan='$id'");
+    unlink('../gambar/postingan/' . $data['foto']);
+    // var_dump($data);
+    // die;
     return mysqli_affected_rows($koneksi);
 }
